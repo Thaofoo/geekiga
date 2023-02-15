@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
-
-const Color warnaUngu = Color.fromARGB(255, 251, 185, 246);
-const Color warnaOren = Color.fromARGB(255, 255, 215, 180);
+import 'package:knowpedia/search.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -25,22 +23,41 @@ class HomePage extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: const [
                       Padding(
-                        padding: EdgeInsets.fromLTRB(16, 0, 20, 8),
+                        padding: EdgeInsets.fromLTRB(20, 0, 30, 0),
                         child: Icon(Icons.menu),
                       ),
                       Image(
                           image: AssetImage(
-                        'assets/small-logo.png',
+                        'images/small-logo.png',
                       )),
                     ],
                   ),
-                  const Padding(
-                    padding: EdgeInsets.fromLTRB(0, 0, 16, 0),
-                    child: CircleAvatar(
-                      radius: 15,
-                      backgroundColor: Colors.white,
-                    ),
+                  Row(children: [
+                      Padding(
+                        padding: EdgeInsets.fromLTRB(16, 0, 20, 0),
+                        child: ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: Color.fromARGB(0, 255, 255, 255)
+                          ),
+                          onPressed: (){
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => const Search()),
+                            );
+                          }, 
+                          child: Icon(Icons.search)
+                          ),
+                        ),
+                      Padding(
+                        padding: EdgeInsets.fromLTRB(0, 0, 16, 0),
+                        child: CircleAvatar(
+                          radius: 15,
+                          backgroundColor: Colors.white,
+                          ),
+                        ),  
+                  ],
                   ),
+                  
                 ],
               ),
             )),
@@ -212,21 +229,33 @@ class HomePage extends StatelessWidget {
         bottomNavigationBar: GNav(
             iconSize: 20,
             gap: 4,
-            backgroundColor: warnaUngu,
+            backgroundColor: Color.fromARGB(10, 255, 255, 255),
             color: Colors.white,
             activeColor: Colors.white,
-            tabBackgroundColor: warnaOren,
+            tabBackgroundColor: Colors.black,
             padding: const EdgeInsets.symmetric(horizontal: 22, vertical: 25),
             onTabChange: (index) {
               print(index);
             },
             tabs: const [
-              GButton(icon: Icons.home, text: "Home"),
-              GButton(icon: Icons.favorite, text: "Like"),
-              GButton(icon: Icons.add_box_rounded, text: "Write"),
-              GButton(icon: Icons.explore, text: "Explore"),
-              GButton(icon: Icons.person, text: "Profile"),
-            ]));
+              GButton(
+                icon: Icons.home, 
+                text: "Home"),
+              GButton(
+                icon: Icons.favorite, 
+                text: "Like"),
+              GButton(
+                icon: Icons.add_box_rounded, 
+                text: "Write"),
+              GButton(
+                icon: Icons.explore, 
+                text: "Explore"),
+              GButton(
+                icon: Icons.person, 
+                text: "Profile"),
+            ]
+          ),
+    );
   }
 }
 
@@ -289,12 +318,12 @@ class Poster extends StatelessWidget {
 }
 
 //Images Featured
-String warMovie = "assets/1917.jpg";
-String mortalKombat = "assets/mortalkombat.jpeg";
+String warMovie = "images/1917.jpg";
+String mortalKombat = "images/mortalkombat.jpeg";
 
 //Images Poster
-String aot = "assets/image 6.png";
-String aot1 = "assets/image 8.png";
-String aot2 = "assets/image 16.png";
-String aot3 = "assets/image 11.png";
-String aot4 = "assets/image 14.png";
+String aot = "images/image 6.png";
+String aot1 = "images/image 8.png";
+String aot2 = "images/image 16.png";
+String aot3 = "images/image 11.png";
+String aot4 = "images/image 14.png";

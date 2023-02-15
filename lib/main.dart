@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'home.dart';
+import 'search.dart';
 
 void main(List<String> args) {
   runApp(MyApp());
