@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
+import 'package:knowpedia/profile.dart';
 import 'package:knowpedia/search.dart';
 
 class HomePage extends StatelessWidget {
@@ -48,11 +49,24 @@ class HomePage extends StatelessWidget {
                           child: Icon(Icons.search)
                           ),
                         ),
-                      Padding(
-                        padding: EdgeInsets.fromLTRB(0, 0, 16, 0),
-                        child: CircleAvatar(
-                          radius: 15,
-                          backgroundColor: Colors.white,
+                        Padding(
+                        padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
+                        child: ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: Color.fromARGB(0, 255, 255, 255),
+                            fixedSize: Size(10, 10) 
+                          ),
+                          
+                          onPressed: (){
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => const Profile()),
+                            );
+                          }, 
+                          child: CircleAvatar(
+                            radius: 15, 
+                            backgroundColor: Colors.white,
+                            ),
                           ),
                         ),  
                   ],
