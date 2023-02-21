@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'home.dart';
-import 'search.dart';
+import 'package:geekiga/navbar.dart';
+import 'Pages/home.dart';
+// import 'search.dart';
+// import 'profile.dart';
 
 void main(List<String> args) {
   runApp(MyApp());
@@ -15,6 +17,6 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           primarySwatch: Colors.purple,
         ),
-        home: HomePage());
+        home: Navbar());
   }
 }
