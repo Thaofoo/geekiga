@@ -3,7 +3,6 @@ import 'package:google_nav_bar/google_nav_bar.dart';
 import 'Pages/profile.dart';
 import 'Pages/watchlist.dart';
 import 'Pages/home.dart';
-import 'Pages/profile.dart';
 import 'Pages/download.dart';
 
 // const Color warnaUngu = Color.fromARGB(255, 75, 38, 72);

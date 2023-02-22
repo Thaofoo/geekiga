@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:geekiga/navbar.dart';
-import 'Pages/home.dart';
-// import 'search.dart';
-// import 'profile.dart';
+import 'package:flutter/services.dart';
+import 'package:geekiga/Pages/login.dart';
 
 void main(List<String> args) {
+  SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.light);
   runApp(MyApp());
 }
 
@@ -15,8 +14,8 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         title: 'Flutter Demo',
         theme: ThemeData(
-          primarySwatch: Colors.purple,
+          primarySwatch: Colors.grey,
         ),
-        home: Navbar());
+        home: Login());
   }
 }

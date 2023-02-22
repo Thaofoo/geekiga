@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:google_nav_bar/google_nav_bar.dart';
-// import 'package:geekiga/profile.dart';
+import 'package:flutter/services.dart';
 import 'package:geekiga/Pages/search.dart';
-// import 'package:geekiga/profile2.dart';
 
 
 class HomePage extends StatelessWidget {
@@ -13,29 +11,31 @@ class HomePage extends StatelessWidget {
     return Scaffold(
         backgroundColor: Color.fromARGB(255, 0, 0, 0),
         appBar: AppBar(
-            toolbarHeight: 60,
-            elevation: 0,
-            backgroundColor: Color.fromARGB(0, 255, 255, 255),
-            title: Padding(
-              padding: const EdgeInsets.fromLTRB(0, 10, 0, 10),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Row(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: const [
-                      Padding(
-                        padding: EdgeInsets.fromLTRB(10, 0, 20, 0),
-                        child: Icon(Icons.menu),
-                      ),
-                      Image(
-                          image: AssetImage(
+          systemOverlayStyle: SystemUiOverlayStyle.light,
+          toolbarHeight: 60,
+          elevation: 0,
+          backgroundColor: Color.fromARGB(0, 255, 255, 255),
+          title: Padding(
+            padding: const EdgeInsets.fromLTRB(0, 10, 0, 10),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: const [
+                    Padding(
+                      padding: EdgeInsets.fromLTRB(10, 0, 20, 0),
+                      child: Icon(Icons.menu, color: Colors.white,),
+                    ),
+                    Image(
+                      image: AssetImage(
                         'images/geekiga.png',
-                      )),
-                    ],
-                  ),
-                  Row(children: [
+                      )
+                    ),
+                  ],
+                ),
+                Row(children: [
                       Padding(
                         padding: EdgeInsets.fromLTRB(16, 0, 0, 0),
                         child: ElevatedButton(
@@ -48,29 +48,10 @@ class HomePage extends StatelessWidget {
                               MaterialPageRoute(builder: (context) => const Search()),
                             );
                           }, 
-                          child: Icon(Icons.search)
+                          child: Icon(Icons.search, color: Colors.white,)
                           ),
                         ),
-                        // Padding(
-                        // padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
-                        // child: ElevatedButton(
-                        //   style: ElevatedButton.styleFrom(
-                        //     backgroundColor: Color.fromARGB(0, 255, 255, 255),
-                        //     fixedSize: Size(10, 10) 
-                        //   ),
                           
-                        //   onPressed: (){
-                        //     Navigator.push(
-                        //       context,
-                        //       MaterialPageRoute(builder: (context) => const Profile()),
-                        //     );
-                        //   }, 
-                        //   child: CircleAvatar(
-                        //     radius: 15, 
-                        //     backgroundColor: Colors.white,
-                        //     ),
-                        //   ),
-                        // ),  
                   ],
                   ),
                   
@@ -83,7 +64,7 @@ class HomePage extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Flexible(
-                  child: ListView(
+                child: ListView(
                 scrollDirection: Axis.vertical,
                 children: [
                   const Padding(
@@ -242,35 +223,7 @@ class HomePage extends StatelessWidget {
             ],
           ),
         ),
-        // bottomNavigationBar: GNav(
-        //     iconSize: 15,
-        //     gap: 4,
-        //     backgroundColor: Color.fromARGB(10, 255, 255, 255),
-        //     color: Colors.white,
-        //     activeColor: Colors.white,
-        //     tabBackgroundColor: Colors.black,
-        //     padding: const EdgeInsets.symmetric(horizontal: 22, vertical: 25),
-        //     onTabChange: (index) {
-        //       print(index);
-        //     },
-        //     tabs: const [
-        //       GButton(
-        //         icon: Icons.home, 
-        //         text: "Home"),
-        //       GButton(
-        //         icon: Icons.favorite, 
-        //         text: "Like"),
-        //       GButton(
-        //         icon: Icons.add_box_rounded, 
-        //         text: "Write"),
-        //       GButton(
-        //         icon: Icons.explore, 
-        //         text: "Explore"),
-        //       GButton(
-        //         icon: Icons.person, 
-        //         text: "Profile"),
-        //     ]
-        //   ),
+        
     );
   }
 }
