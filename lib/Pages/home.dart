@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:geekiga/Pages/search.dart';
+import 'package:geekiga/Pages/drawer.dart';
 
 
 class HomePage extends StatelessWidget {
@@ -10,7 +11,9 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: Color.fromARGB(255, 0, 0, 0),
+        // drawer: Drawer(),
         appBar: AppBar(
+          iconTheme: IconThemeData(color: Colors.white),
           systemOverlayStyle: SystemUiOverlayStyle.light,
           toolbarHeight: 60,
           elevation: 0,
@@ -24,10 +27,10 @@ class HomePage extends StatelessWidget {
                 Row(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: const [
-                    Padding(
-                      padding: EdgeInsets.fromLTRB(10, 0, 20, 0),
-                      child: Icon(Icons.menu, color: Colors.white,),
-                    ),
+                    // Padding(
+                    //   padding: EdgeInsets.fromLTRB(10, 0, 20, 0),
+                    //   child: Icon(Icons.menu, color: Colors.white,),
+                    // ),
                     Image(
                       image: AssetImage(
                         'images/geekiga.png',
@@ -58,6 +61,7 @@ class HomePage extends StatelessWidget {
                 ],
               ),
             )),
+        drawer: DrawerWidget(),
         body: Padding(
           padding: const EdgeInsets.fromLTRB(20, 0, 20, 0),
           child: Column(

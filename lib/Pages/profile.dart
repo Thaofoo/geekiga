@@ -24,6 +24,8 @@ class Profile extends StatelessWidget {
                 context: context, 
                 builder: (context) {
                   return AlertDialog(
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(15.0))),
                     backgroundColor: Color.fromARGB(255, 42, 42, 42),
                     title: const Text("Sign Out", style: TextStyle(color: Colors.white),),
                     content: const Text("Are you sure you want to sign out?", style: TextStyle(color: Colors.white),),
@@ -38,6 +40,7 @@ class Profile extends StatelessWidget {
                         context, MaterialPageRoute(builder: (BuildContext context) => Login()));
                       }, child: const Text("Confirm", style: TextStyle(color: Colors.white),),
                       ),
+                    
                     ],
                   );
                 }
@@ -53,7 +56,7 @@ class Profile extends StatelessWidget {
             children: <Widget>[
               Center(
                 child: CircleAvatar(
-                  foregroundImage: NetworkImage("https://seeklogo.com/images/A/among-us-logo-315EB5A5DA-seeklogo.com.png"),
+                  foregroundImage: AssetImage('images/edo.jpg'),
                   backgroundColor: Colors.white,
                   radius: 60,
                 ),
@@ -71,7 +74,7 @@ class Profile extends StatelessWidget {
               ),
               SizedBox(height: 10),
               Text(
-                'Mochamad Taufiqul Putri',
+                'Mochamad Taufiqul Putra',
                 maxLines: 1,
                 overflow: TextOverflow.ellipsis,
                 style: TextStyle(

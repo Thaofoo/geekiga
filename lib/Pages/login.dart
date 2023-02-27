@@ -22,9 +22,15 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return Container(
+      decoration: const BoxDecoration(
+          gradient: LinearGradient(
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight,
+              colors: [Color.fromARGB(255, 83, 60, 15), Colors.black])),
+      child: Scaffold(
       
-      backgroundColor: Colors.black,
+      backgroundColor: Colors.transparent,
       // appBar: AppBar(
       //   title: Text("Login Page"),
       // ),
@@ -38,9 +44,6 @@ class _LoginPageState extends State<LoginPage> {
                 child: Container(
                     width: 200,
                     height: 150,
-                    /*decoration: BoxDecoration(
-                        color: Colors.red,
-                        borderRadius: BorderRadius.circular(50.0)),*/
                     child: Image.asset('images/geekigaLogo.png')),
               ),
             ),
@@ -106,11 +109,12 @@ class _LoginPageState extends State<LoginPage> {
                 style: TextStyle(color: Color.fromARGB(255, 184, 137, 33), fontSize: 14),
               ),
             ),
+            
             Container(
               height: 50,
-              width: 250,
+              width: 320,
               decoration: BoxDecoration(
-                  color: Color.fromARGB(255, 81, 58, 9), borderRadius: BorderRadius.circular(20)),
+                  color: Color.fromARGB(255, 81, 58, 9), borderRadius: BorderRadius.circular(45)),
               child: TextButton(
                 onPressed: () {
                   Navigator.pushReplacement(
@@ -124,7 +128,7 @@ class _LoginPageState extends State<LoginPage> {
             ),
             SizedBox(
               height: 130,
-            ),
+            ),  
             Container(
                 width: 300,
                 // padding: const EdgeInsets.all(10.0),
@@ -148,10 +152,11 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                 ],
                 )
-              )
+              ),
           ],
         ),
       ),
+    ),
     );
   }
 }
