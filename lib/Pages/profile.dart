@@ -1,21 +1,5 @@
 import 'package:flutter/material.dart';
-
-// void main(List<String> args) {
-//   runApp(MyApp());
-// }
-
-// class MyApp extends StatelessWidget {
-//   @override
-//   Widget build(BuildContext context) {
-//     return MaterialApp(
-//         debugShowCheckedModeBanner: false,
-//         title: 'Flutter Demo',
-//         theme: ThemeData(
-//           primarySwatch: Colors.purple,
-//         ),
-//         home: profile2());
-//   }
-// }
+import 'package:geekiga/Pages/login.dart';
 
 const Color warnaEmas = Color.fromARGB(255, 184, 137, 33);
 
@@ -27,10 +11,40 @@ class Profile extends StatelessWidget {
     return Scaffold(
       backgroundColor: Color.fromARGB(255, 0, 0, 0),
       appBar: AppBar(
-        title: Text('Your Profile'),
+        title: Text('Your Profile', style: TextStyle(color: Colors.white),),
         centerTitle: true,
         backgroundColor: Color.fromARGB(0, 48, 48, 48),
         elevation: 0,
+        actions: <Widget>[
+          IconButton(
+            icon: const Icon(Icons.logout_outlined, color: Colors.grey),
+            tooltip: 'Log Out',
+            onPressed: () {
+              showDialog(
+                context: context, 
+                builder: (context) {
+                  return AlertDialog(
+                    backgroundColor: Color.fromARGB(255, 42, 42, 42),
+                    title: const Text("Sign Out", style: TextStyle(color: Colors.white),),
+                    content: const Text("Are you sure you want to sign out?", style: TextStyle(color: Colors.white),),
+                    actions: [
+                      TextButton(onPressed: (){
+                        Navigator.pop(context);
+                      }, child: const Text("Cancel", style: TextStyle(color: Colors.white),),
+                      ),
+                      TextButton(onPressed: (){
+                        Navigator.of(context).popUntil((route) => route.isFirst);
+                        Navigator.pushReplacement(
+                        context, MaterialPageRoute(builder: (BuildContext context) => Login()));
+                      }, child: const Text("Confirm", style: TextStyle(color: Colors.white),),
+                      ),
+                    ],
+                  );
+                }
+                );
+            },
+          ),
+        ],
       ),
         body: Padding(
           padding: EdgeInsets.fromLTRB(30, 40, 30, 0),
@@ -100,10 +114,10 @@ class Profile extends StatelessWidget {
                         letterSpacing: 1
                       ),
                     ),
-                  )
+                  ),
                 ],
                 )
-              )
+              ),
             ],
           ),
         ),
