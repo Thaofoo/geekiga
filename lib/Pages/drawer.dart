@@ -1,33 +1,34 @@
 import 'package:flutter/material.dart';
 import 'package:geekiga/Pages/profile.dart';
 import 'package:geekiga/Pages/login.dart';
+import 'package:geekiga/Pages/settings.dart';
 
 const Color warnaEmas = Color.fromARGB(255, 184, 137, 33);
 
 
-void main() {
-     runApp(MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: "BelajarFlutter",
-      home: BelajarNavigationDrawer(),
-      )
-     );
-}
-class BelajarNavigationDrawer extends StatelessWidget {
-    @override
-    Widget build(BuildContext context) {
-      return Scaffold(
-        appBar: AppBar(
-            title: Text("Nathanael Belajar Drawer"),
-            backgroundColor: Colors.deepPurple,
-        ),
-        drawer: DrawerWidget(),
-        body: Center(
-               child: Text('Belajar Navigation Drawer di Flutter',
-               style: TextStyle(fontSize: 20))),
-           );
-     }
-}
+// void main() {
+//      runApp(MaterialApp(
+//       debugShowCheckedModeBanner: false,
+//       title: "BelajarFlutter",
+//       home: BelajarNavigationDrawer(),
+//       )
+//      );
+// }
+// class BelajarNavigationDrawer extends StatelessWidget {
+//     @override
+//     Widget build(BuildContext context) {
+//       return Scaffold(
+//         appBar: AppBar(
+//             title: Text(""),
+//             backgroundColor: Colors.deepPurple,
+//         ),
+//         drawer: DrawerWidget(),
+//         body: Center(
+//                child: Text('',
+//                style: TextStyle(fontSize: 20))),
+//            );
+//      }
+// }
 
 class DrawerWidget extends StatelessWidget {
   const DrawerWidget({super.key});
@@ -72,12 +73,19 @@ class DrawerWidget extends StatelessWidget {
           _drawerItem(
             icon: Icons.settings,
             text: 'Settings',
-            onTap: () => print('Tap Trash menu')),
-          _drawerItem(
-            // icon: Icons.perm_device_info,
-            icon: Icons.privacy_tip_outlined,
-            text: 'About us',
-            onTap: () => print('Tap Family menu')),
+            onTap: (){
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const Settings()),
+                );
+              },
+            ),
+          // _drawerItem(
+          //   // icon: Icons.perm_device_info,
+          //   icon: Icons.privacy_tip_outlined,
+          //   text: 'About us',
+          //   onTap: () => print('Tap Family menu')
+          // ),
             _drawerItem(
             icon: Icons.logout_outlined,
             text: 'Log Out',
@@ -122,18 +130,6 @@ Widget _drawerHeader() {
                  image: AssetImage('images/edo.jpg'),
                  fit: BoxFit.cover),
              ),
-            //  otherAccountsPictures: [
-            //      ClipOval(
-            //          child: Image(
-            //             image: AssetImage('images/edo.jpg'),
-            //             fit: BoxFit.cover),
-            //         ),
-            //     ClipOval(
-            //         child: Image(
-            //             image: AssetImage('images/edo.jpg'),
-            //             fit: BoxFit.cover),
-            //         )
-            //     ],
       accountName: Text('Nathanael Erlando Putra', style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white),),
       accountEmail: Text('erlando.putra.21@gmail.com', style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white  ),),
     );

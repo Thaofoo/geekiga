@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:geekiga/navbar.dart';
 import 'package:geekiga/Pages/signup.dart';
+import 'package:geekiga/Pages/forget.dart';
 
 var _passwordVisible = false;
+const Color warnaEmas = Color.fromARGB(255, 184, 137, 33);
 
 class Login extends StatelessWidget {
   const Login({super.key});  
@@ -28,7 +30,8 @@ class _LoginPageState extends State<LoginPage> {
           gradient: LinearGradient(
               begin: Alignment.topLeft,
               end: Alignment.bottomRight,
-              colors: [Color.fromARGB(255, 83, 60, 15), Colors.black])),
+              stops: [0.1, 0.7, 0.4],
+              colors: [Color.fromARGB(255, 83, 60, 15), Colors.black, Colors.black])),
       child: Scaffold(
       
       backgroundColor: Colors.transparent,
@@ -103,10 +106,12 @@ class _LoginPageState extends State<LoginPage> {
               // shape: MaterialStatePropertyAll<RoundedRectangleBorder>(RoundedRectangleBorder(borderRadius: BorderRadius.circular(30), side: BorderSide(color: Colors.black)))  
               // ),
               onPressed: (){
-                //TODO FORGOT PASSWORD SCREEN GOES HERE
+                Navigator.push(
+                        context, MaterialPageRoute(builder: (_) => Forget())
+                      );
               },
               child: Text(
-                'Forgot Your Password?',
+                'Forget Your Password?',
                 style: TextStyle(color: Color.fromARGB(255, 184, 137, 33), fontSize: 14),
               ),
             ),

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:geekiga/Pages/login.dart';
 
 const Color warnaEmas = Color.fromARGB(255, 184, 137, 33);
 
@@ -59,7 +58,7 @@ class Profile extends StatelessWidget {
             children: <Widget>[
               Center(
                 child: CircleAvatar(
-                  foregroundImage: AssetImage('images/edo.jpg'),
+                  foregroundImage: AssetImage('images/topik.jpg'),
                   backgroundColor: Colors.white,
                   radius: 60,
                 ),
@@ -111,7 +110,7 @@ class Profile extends StatelessWidget {
                   Container(
                     width: 260,
                     child: Text(
-                      "erlando.putra.21@gmail.com",
+                      "mochamad.taufiqul@gmail.com",
                       overflow: TextOverflow.ellipsis,
                       
                       style: TextStyle(

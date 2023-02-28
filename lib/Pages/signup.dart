@@ -28,7 +28,8 @@ class _LoginPageState extends State<LoginPage> {
           gradient: LinearGradient(
               begin: Alignment.topLeft,
               end: Alignment.bottomRight,
-              colors: [Color.fromARGB(255, 83, 60, 15), Colors.black])),
+              stops: [0.1, 0.7, 0.4],
+              colors: [Color.fromARGB(255, 83, 60, 15), Colors.black, Colors.black])),
       child: Scaffold(
       
       backgroundColor: Colors.transparent,
@@ -51,7 +52,12 @@ class _LoginPageState extends State<LoginPage> {
             Padding(
               padding: const EdgeInsets.all(40),
               child: Center(
-                child: Text("Create Your Account", style: TextStyle(color: Colors.white, fontWeight: FontWeight.w800, fontSize: 20),),
+                child: Text(
+                  "Create Your Account", 
+                  style: TextStyle(
+                    color: Colors.white, 
+                    fontWeight: FontWeight.w800, 
+                    fontSize: 25),),
               ),
             ),
             Padding(
