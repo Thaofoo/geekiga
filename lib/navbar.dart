@@ -1,17 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:geekiga/Pages/Chart.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'Pages/profile.dart';
 import 'Pages/watchlist.dart';
 import 'Pages/home.dart';
 import 'Pages/download.dart';
 
-// const Color warnaUngu = Color.fromARGB(255, 75, 38, 72);
-// const Color warnaOren = Color.fromARGB(255, 239, 140, 51);
 const Color warnaEmas = Color.fromARGB(255, 184, 137, 33);
 
 class Navbar extends StatefulWidget {
   int currentIndex =0;
-  List pages = [const HomePage(), const WatchListPage(), const DownloadPage(), const Profile()];
+  List pages = [const HomePage(), const ChartPage(), const WatchListPage(), const DownloadPage()];
 
   Navbar({super.key});
 
@@ -43,9 +42,10 @@ class _NavbarState extends State<Navbar> {
           tabs: const [
           
           GButton(icon: Icons.home, text: "Home"),
-          GButton(icon: Icons.list_alt_sharp, text: "Watch List"),
+          GButton(icon: Icons.show_chart_outlined, text: "Top Movies"),
+          GButton(icon: Icons.bookmarks, text: "Watch List"),
           GButton(icon: Icons.file_download_outlined, text: "Download"),
-          GButton(icon: Icons.person, text: "Profile"),
+          
         ])  ,
     );
   }

@@ -44,7 +44,7 @@ class HomePage extends StatelessWidget {
                         child: ElevatedButton(
                           style: ElevatedButton.styleFrom(
                             backgroundColor: Color.fromARGB(0, 255, 255, 255)
-                          ),
+                          ),  
                           onPressed: (){
                             Navigator.push(
                               context,

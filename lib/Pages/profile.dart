@@ -11,43 +11,46 @@ class Profile extends StatelessWidget {
     return Scaffold(
       backgroundColor: Color.fromARGB(255, 0, 0, 0),
       appBar: AppBar(
+        iconTheme: IconThemeData(
+          color: Colors.grey, //change your color here
+        ),
         title: Text('Your Profile', style: TextStyle(color: Colors.white),),
         centerTitle: true,
         backgroundColor: Color.fromARGB(0, 48, 48, 48),
         elevation: 0,
-        actions: <Widget>[
-          IconButton(
-            icon: const Icon(Icons.logout_outlined, color: Colors.grey),
-            tooltip: 'Log Out',
-            onPressed: () {
-              showDialog(
-                context: context, 
-                builder: (context) {
-                  return AlertDialog(
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(15.0))),
-                    backgroundColor: Color.fromARGB(255, 42, 42, 42),
-                    title: const Text("Sign Out", style: TextStyle(color: Colors.white),),
-                    content: const Text("Are you sure you want to sign out?", style: TextStyle(color: Colors.white),),
-                    actions: [
-                      TextButton(onPressed: (){
-                        Navigator.pop(context);
-                      }, child: const Text("Cancel", style: TextStyle(color: Colors.white),),
-                      ),
-                      TextButton(onPressed: (){
-                        Navigator.of(context).popUntil((route) => route.isFirst);
-                        Navigator.pushReplacement(
-                        context, MaterialPageRoute(builder: (BuildContext context) => Login()));
-                      }, child: const Text("Confirm", style: TextStyle(color: Colors.white),),
-                      ),
+        // actions: <Widget>[
+        //   IconButton(
+        //     icon: const Icon(Icons.logout_outlined, color: Colors.grey),
+        //     tooltip: 'Log Out',
+        //     onPressed: () {
+        //       showDialog(
+        //         context: context, 
+        //         builder: (context) {
+        //           return AlertDialog(
+        //             shape: RoundedRectangleBorder(
+        //               borderRadius: BorderRadius.all(Radius.circular(15.0))),
+        //             backgroundColor: Color.fromARGB(255, 42, 42, 42),
+        //             title: const Text("Sign Out", style: TextStyle(color: Colors.white),),
+        //             content: const Text("Are you sure you want to sign out?", style: TextStyle(color: Colors.white),),
+        //             actions: [
+        //               TextButton(onPressed: (){
+        //                 Navigator.pop(context);
+        //               }, child: const Text("Cancel", style: TextStyle(color: Colors.white),),
+        //               ),
+        //               TextButton(onPressed: (){
+        //                 Navigator.of(context).popUntil((route) => route.isFirst);
+        //                 Navigator.pushReplacement(
+        //                 context, MaterialPageRoute(builder: (BuildContext context) => Login()));
+        //               }, child: const Text("Confirm", style: TextStyle(color: Colors.white),),
+        //               ),
                     
-                    ],
-                  );
-                }
-                );
-            },
-          ),
-        ],
+        //             ],
+        //           );
+        //         }
+        //         );
+        //     },
+        //   ),
+        // ],
       ),
         body: Padding(
           padding: EdgeInsets.fromLTRB(30, 40, 30, 0),
@@ -74,7 +77,7 @@ class Profile extends StatelessWidget {
               ),
               SizedBox(height: 10),
               Text(
-                'Mochamad Taufiqul Putra',
+                'Mochamad Taufiqul Hafizh',
                 maxLines: 1,
                 overflow: TextOverflow.ellipsis,
                 style: TextStyle(
