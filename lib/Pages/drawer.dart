@@ -6,30 +6,6 @@ import 'package:geekiga/Pages/settings.dart';
 const Color warnaEmas = Color.fromARGB(255, 184, 137, 33);
 
 
-// void main() {
-//      runApp(MaterialApp(
-//       debugShowCheckedModeBanner: false,
-//       title: "BelajarFlutter",
-//       home: BelajarNavigationDrawer(),
-//       )
-//      );
-// }
-// class BelajarNavigationDrawer extends StatelessWidget {
-//     @override
-//     Widget build(BuildContext context) {
-//       return Scaffold(
-//         appBar: AppBar(
-//             title: Text(""),
-//             backgroundColor: Colors.deepPurple,
-//         ),
-//         drawer: DrawerWidget(),
-//         body: Center(
-//                child: Text('',
-//                style: TextStyle(fontSize: 20))),
-//            );
-//      }
-// }
-
 class DrawerWidget extends StatelessWidget {
   const DrawerWidget({super.key});
 
@@ -114,19 +90,19 @@ class DrawerWidget extends StatelessWidget {
                     return AlertDialog(
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.all(Radius.circular(15.0))),
-                      backgroundColor: Color.fromARGB(255, 42, 42, 42),
+                      backgroundColor: Color.fromARGB(255, 34, 34, 34),
                       title: const Text("Sign Out", style: TextStyle(color: Colors.white),),
                       content: const Text("Are you sure you want to sign out?", style: TextStyle(color: Colors.white),),
                       actions: [
                         TextButton(onPressed: (){
                           Navigator.pop(context);
-                        }, child: const Text("Cancel", style: TextStyle(color: Colors.white),),
+                        }, child: const Text("Cancel", style: TextStyle(color: warnaEmas, fontWeight: FontWeight.bold),),
                         ),
                         TextButton(onPressed: (){
                           Navigator.of(context).popUntil((route) => route.isFirst);
                           Navigator.pushReplacement(
                           context, MaterialPageRoute(builder: (BuildContext context) => Login()));
-                        }, child: const Text("Confirm", style: TextStyle(color: Colors.white),),
+                        }, child: const Text("Confirm", style: TextStyle(color: warnaEmas, fontWeight: FontWeight.bold),),
                         ),
                       
                       ],

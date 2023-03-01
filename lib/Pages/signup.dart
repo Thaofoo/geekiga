@@ -28,8 +28,19 @@ class _LoginPageState extends State<LoginPage> {
           gradient: LinearGradient(
               begin: Alignment.topLeft,
               end: Alignment.bottomRight,
-              stops: [0.1, 0.7, 0.4],
-              colors: [Color.fromARGB(255, 83, 60, 15), Colors.black, Colors.black])),
+              stops: [
+                0.1,
+                0.40,
+                0.6,
+                0.9,
+              ],
+              colors: [
+                Color.fromARGB(255, 98, 48, 8),
+                Color.fromARGB(255, 32, 19, 8),
+                Color.fromARGB(255, 21, 19, 17),
+                Color.fromARGB(255, 0, 0, 0),
+              ],
+            )),
       child: Scaffold(
       
       backgroundColor: Colors.transparent,
