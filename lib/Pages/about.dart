@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:geekiga/Pages/login.dart';
 
 const Color warnaEmas = Color.fromARGB(255, 184, 137, 33);
 
@@ -38,7 +37,7 @@ class About extends StatelessWidget {
               ),
               SizedBox(height: 10),
               Text(
-                'Mochamad Taufiqul Hafizh | 003',
+                'Mochamad Taufiqul Hafizh | 002',
                 maxLines: 1,
                 overflow: TextOverflow.ellipsis,
                 style: TextStyle(
