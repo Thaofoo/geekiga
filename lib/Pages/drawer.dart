@@ -13,26 +13,26 @@ class DrawerWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        gradient: LinearGradient(
+       gradient: LinearGradient(
               begin: Alignment.topLeft,
               end: Alignment.bottomRight,
               stops: [
                 0.1,
-                0.25,
+                0.40,
                 0.6,
                 0.9,
               ],
               colors: [
-                Color.fromARGB(255, 98, 48, 8),
-                Color.fromARGB(255, 73, 42, 18),
-                Color.fromARGB(255, 44, 39, 35),
-                Color.fromARGB(255, 41, 41, 41),
+                Color.fromARGB(255, 58, 29, 7),
+                Color.fromARGB(255, 32, 19, 8),
+                Color.fromARGB(255, 21, 19, 17),
+                Color.fromARGB(255, 19, 19, 19),
               ],
-            )
+            ),
       
       ),
       child: Drawer(
-        backgroundColor: Color.fromARGB(91, 0, 0, 0),
+        backgroundColor: Colors.transparent,
         child: ListView(
           padding: EdgeInsets.zero,
           children: <Widget>[

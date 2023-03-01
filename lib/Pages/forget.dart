@@ -35,12 +35,13 @@ class _LoginPageState extends State<LoginPage> {
                 0.9,
               ],
               colors: [
-                Color.fromARGB(255, 98, 48, 8),
+                Color.fromARGB(255, 58, 29, 7),
                 Color.fromARGB(255, 32, 19, 8),
                 Color.fromARGB(255, 21, 19, 17),
                 Color.fromARGB(255, 0, 0, 0),
               ],
-            )),
+            ),
+            ),
       child: Scaffold(
       
       backgroundColor: Color.fromARGB(42, 0, 0, 0),
