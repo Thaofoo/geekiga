@@ -18,21 +18,17 @@ class DrawerWidget extends StatelessWidget {
               end: Alignment.bottomRight,
               stops: [
                 0.1,
-                0.40,
-                0.6,
                 0.9,
               ],
               colors: [
                 Color.fromARGB(255, 58, 29, 7),
-                Color.fromARGB(255, 32, 19, 8),
-                Color.fromARGB(255, 21, 19, 17),
-                Color.fromARGB(255, 19, 19, 19),
+                Color.fromARGB(255, 0, 0, 0),
               ],
             ),
       
       ),
       child: Drawer(
-        backgroundColor: Colors.transparent,
+        backgroundColor: Color.fromARGB(92, 0, 0, 0),
         child: ListView(
           padding: EdgeInsets.zero,
           children: <Widget>[
