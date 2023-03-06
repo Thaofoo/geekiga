@@ -12,7 +12,7 @@ const Color warnaEmas = Color.fromARGB(255, 184, 137, 33);
 class Navbar2 extends StatefulWidget {
   int _currentIndex = 0;
   List pages = [
-    const HomePage(),
+    HomePage(),
     const ChartPage(),
     const WatchListPage(),
     const DownloadPage()

@@ -9,8 +9,13 @@ import 'Pages/download.dart';
 const Color warnaEmas = Color.fromARGB(255, 184, 137, 33);
 
 class Navbar extends StatefulWidget {
-  int currentIndex =0;
-  List pages = [const HomePage(), const ChartPage(), const WatchListPage(), const DownloadPage()];
+  int currentIndex = 0;
+  List pages = [
+    HomePage(),
+    const ChartPage(),
+    const WatchListPage(),
+    const DownloadPage()
+  ];
 
   Navbar({super.key});
 
@@ -25,7 +30,7 @@ class _NavbarState extends State<Navbar> {
       body: widget.pages[widget.currentIndex],
       bottomNavigationBar: GNav(
           iconSize: 15,
-          gap: 4, 
+          gap: 4,
           backgroundColor: Color.fromARGB(255, 0, 0, 0),
           color: Colors.white,
           activeColor: Color.fromARGB(255, 184, 137, 33),
@@ -40,13 +45,11 @@ class _NavbarState extends State<Navbar> {
           },
           selectedIndex: 0,
           tabs: const [
-          
-          GButton(icon: Icons.home, text: "Home"),
-          GButton(icon: Icons.show_chart_outlined, text: "Top Movies"),
-          GButton(icon: Icons.bookmarks, text: "Watch List"),
-          GButton(icon: Icons.file_download_outlined, text: "Download"),
-          
-        ])  ,
+            GButton(icon: Icons.home, text: "Home"),
+            GButton(icon: Icons.show_chart_outlined, text: "Top Movies"),
+            GButton(icon: Icons.bookmarks, text: "Watch List"),
+            GButton(icon: Icons.file_download_outlined, text: "Download"),
+          ]),
     );
   }
 }
