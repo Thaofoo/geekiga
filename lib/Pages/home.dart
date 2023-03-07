@@ -45,8 +45,8 @@ class _HomeState extends State<Home> {
     return Scaffold(
       backgroundColor: Colors.black,
       appBar: AppBar(
+          systemOverlayStyle: SystemUiOverlayStyle.light,
           iconTheme: IconThemeData(color: Colors.white),
-          // systemOverlayStyle: SystemUiOverlayStyle.light,
           toolbarHeight: 60,
           elevation: 0,
           backgroundColor: Color.fromARGB(0, 255, 255, 255),

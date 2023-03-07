@@ -27,16 +27,17 @@ class _SearchPageState extends State<SearchPage> {
   // }
 
   static List<MovieList> movie_list = [
-    MovieList("Shingeki No Kyojin", "Series", "images/AOT.webp"),
-    MovieList("Top Gun Maverick", "Movie", "images/TGM.jpg"),
-    MovieList("Chainsaw Man", "Series", "images/CSM.jpg"),
-    MovieList("Spider-Man: No Way Home", "Movie", "images/Spiderman.jpeg"),
-    MovieList("Spy X Family", "Series", "images/SXF.jpg"),
-    MovieList("Interstellar", "Movie", "images/interstellar.jpg"),
-    MovieList("The Batman", "Movie", "images/batman.jpg"),
-    MovieList("John Wick Chapter 3: Parabellum", "Movie", "images/JW.jpg"),
-    MovieList("Kimi No Nawa", "Movie", "images/KNN.webp"),
-    MovieList("The Batman", "Movie", "images/batman.jpg"),
+    MovieList("Shingeki No Kyojin", "2013", "images/AOT.webp"),
+    MovieList("Top Gun Maverick", "2022", "images/TGM.jpg"),
+    MovieList("Chainsaw Man", "2022", "images/CSM.jpg"),
+    MovieList("Spider-Man: No Way Home", "2021", "images/Spiderman.jpeg"),
+    MovieList("Spy X Family", "2022", "images/SXF.jpg"),
+    MovieList("Interstellar", "2014", "images/interstellar.jpg"),
+    MovieList("The Batman", "2022", "images/batman.jpg"),
+    MovieList("John Wick: Chapter 3 - Parabellum", "2019", "images/JW.jpg"),
+    MovieList("Kimi No Nawa", "2016", "images/KNN.webp"),
+    MovieList("1917", "2020", "images/1917-portrait.jpg"),
+    MovieList("Mortal Kombat", "2021", "images/MK-Portrait.webp")
   ];
 
   List<MovieList> display_list = List.from(movie_list);

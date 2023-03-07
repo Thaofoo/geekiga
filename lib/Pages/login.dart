@@ -43,9 +43,12 @@ class _LoginPageState extends State<LoginPage> {
       ),
       child: Scaffold(
         backgroundColor: Colors.transparent,
-        // appBar: AppBar(
-        //   title: Text("Login Page"),
-        // ),
+        appBar: PreferredSize(
+          preferredSize: Size.fromHeight(0),
+          child: AppBar(
+            backgroundColor: Colors.black,
+          ),
+        ),
         body: SingleChildScrollView(
           child: Column(
             children: <Widget>[
