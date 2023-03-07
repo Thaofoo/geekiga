@@ -11,6 +11,7 @@ class Settings extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color.fromARGB(255, 0, 0, 0),
+      bottomNavigationBar: null,
       appBar: AppBar(
         iconTheme: IconThemeData(
           color: Colors.grey, //change your color here

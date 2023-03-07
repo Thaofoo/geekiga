@@ -78,8 +78,7 @@ class _HomeState extends State<Home> {
                               backgroundColor:
                                   Color.fromARGB(0, 255, 255, 255)),
                           onPressed: () {
-                            Navigator.push(
-                              context,
+                            Navigator.of(context, rootNavigator: true).push(
                               MaterialPageRoute(
                                   builder: (context) => const Search()),
                             );

@@ -37,8 +37,7 @@ class DrawerWidget extends StatelessWidget {
               icon: Icons.person,
               text: 'My Profile',
               onTap: (){
-                Navigator.push(
-                  context,
+                Navigator.of(context, rootNavigator: true).push(
                   MaterialPageRoute(builder: (context) => const Profile()),
                 );
               },),
@@ -64,8 +63,7 @@ class DrawerWidget extends StatelessWidget {
               icon: Icons.settings,
               text: 'Settings',
               onTap: (){
-                Navigator.push(
-                  context,
+                Navigator.of(context, rootNavigator: true).push(
                   MaterialPageRoute(builder: (context) => const Settings()),
                   );
                 },
