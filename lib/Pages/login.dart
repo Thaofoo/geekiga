@@ -141,7 +141,7 @@ class _LoginPageState extends State<LoginPage> {
                   'Forgot Your Password?',
                   style: TextStyle(
                     color: Color.fromARGB(255, 184, 137, 33),
-                    fontSize: 14,
+                    fontSize: 15,
                     fontWeight: FontWeight.w300,
                   ),
                 ),
@@ -168,7 +168,7 @@ class _LoginPageState extends State<LoginPage> {
                 ),
               ),
               SizedBox(
-                height: 130,
+                height: 100,
               ),
               Container(
                   width: 300,

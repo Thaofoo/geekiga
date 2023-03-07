@@ -4,7 +4,7 @@ const Color warnaEmas = Color.fromARGB(255, 184, 137, 33);
 
 class Profile extends StatelessWidget {
   const Profile({super.key});
-  
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -13,7 +13,10 @@ class Profile extends StatelessWidget {
         iconTheme: IconThemeData(
           color: Colors.grey, //change your color here
         ),
-        title: Text('Your Profile', style: TextStyle(color: Colors.white),),
+        title: Text(
+          'Your Profile',
+          style: TextStyle(color: Colors.white),
+        ),
         centerTitle: true,
         backgroundColor: Color.fromARGB(0, 48, 48, 48),
         elevation: 0,
@@ -23,7 +26,7 @@ class Profile extends StatelessWidget {
         //     tooltip: 'Log Out',
         //     onPressed: () {
         //       showDialog(
-        //         context: context, 
+        //         context: context,
         //         builder: (context) {
         //           return AlertDialog(
         //             shape: RoundedRectangleBorder(
@@ -42,7 +45,7 @@ class Profile extends StatelessWidget {
         //                 context, MaterialPageRoute(builder: (BuildContext context) => Login()));
         //               }, child: const Text("Confirm", style: TextStyle(color: Colors.white),),
         //               ),
-                    
+
         //             ],
         //           );
         //         }
@@ -51,82 +54,73 @@ class Profile extends StatelessWidget {
         //   ),
         // ],
       ),
-        body: Padding(
-          padding: EdgeInsets.fromLTRB(30, 40, 30, 0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              Center(
-                child: CircleAvatar(
-                  foregroundImage: AssetImage('images/topik.jpg'),
-                  backgroundColor: Colors.white,
-                  radius: 60,
-                ),
+      body: Padding(
+        padding: EdgeInsets.fromLTRB(30, 40, 30, 0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            Center(
+              child: CircleAvatar(
+                foregroundImage: AssetImage('images/topik.jpg'),
+                backgroundColor: Colors.white,
+                radius: 60,
               ),
-              Divider(
-                height: 60,
-                color: Colors.grey[800],
-              ),
-              Text(
-                'Name',
-                style: TextStyle(
-                  color: warnaEmas,
-                  letterSpacing: 2
-                ),
-              ),
-              SizedBox(height: 10),
-              Text(
-                'Mochamad Taufiqul Hafizh',
-                maxLines: 1,
-                overflow: TextOverflow.ellipsis,
-                style: TextStyle(
-                    color: Colors.grey[400],
-                    letterSpacing: 2,
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold
-                ),
-              ),
-              SizedBox(height: 30),
-              Text(
-                'Email',
-                style: TextStyle(
-                  color: warnaEmas,
-                  letterSpacing: 2
-                ),
-              ),
-              SizedBox(height: 10),
-              Container(
-                width: 300,
+            ),
+            Divider(
+              height: 60,
+              color: Colors.grey[800],
+            ),
+            Text(
+              'Name',
+              style: TextStyle(color: warnaEmas, letterSpacing: 2),
+            ),
+            SizedBox(height: 10),
+            Text(
+              'Mochamad Taufiqul Hafizh',
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
+              style: TextStyle(
+                  color: Colors.grey[400],
+                  letterSpacing: 2,
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold),
+            ),
+            SizedBox(height: 30),
+            Text(
+              'Email',
+              style: TextStyle(color: warnaEmas, letterSpacing: 2),
+            ),
+            SizedBox(height: 10),
+            Container(
+                width: 350,
                 // padding: const EdgeInsets.all(10.0),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.start,
                   mainAxisSize: MainAxisSize.max,
                   children: [
-                  Icon(
-                    Icons.email,
-                    color: Colors.grey[400],
-                  ),
-                  SizedBox(width: 10,),
-                  Container(
-                    width: 260,
-                    child: Text(
-                      "mochamad.taufiqul@gmail.com",
-                      overflow: TextOverflow.ellipsis,
-                      
-                      style: TextStyle(
-                        color: Colors.grey[400],
-                        fontSize: 18,
-                        letterSpacing: 1
+                    Icon(
+                      Icons.email,
+                      color: Colors.grey[400],
+                    ),
+                    SizedBox(
+                      width: 10,
+                    ),
+                    Container(
+                      width: 300,
+                      child: Text(
+                        "mochamad.taufiqul@gmail.com",
+                        overflow: TextOverflow.ellipsis,
+                        style: TextStyle(
+                            color: Colors.grey[400],
+                            fontSize: 18,
+                            letterSpacing: 1),
                       ),
                     ),
-                  ),
-                ],
-                )
-              ),
-            ],
-          ),
+                  ],
+                )),
+          ],
         ),
+      ),
     );
   }
-
 }

@@ -6,17 +6,15 @@ class ChartPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black,
-      body: Center(
-                child: Text(
-                  "Top Watched Movie Page", 
-                  style: TextStyle(
-                    color: Colors.white, 
-                    fontSize: 22.0, 
-                    fontWeight: FontWeight.bold
-                    ),
-                ),
-              )
-    ); 
+        backgroundColor: Colors.black,
+        body: Center(
+          child: Text(
+            "Top Watched Movie Page",
+            style: TextStyle(
+                color: Colors.white,
+                fontSize: 22.0,
+                fontWeight: FontWeight.bold),
+          ),
+        ));
   }
 }

@@ -102,16 +102,13 @@ class _HomeState extends State<Home> {
               scrollDirection: Axis.vertical,
               children: [
                 Padding(
-                  padding: const EdgeInsets.fromLTRB(20, 0, 20, 0),
+                  padding: const EdgeInsets.fromLTRB(20, 0, 20, 10),
                   child: Text("Featured",
                       style: TextStyle(
                           color: Colors.white,
                           fontSize: 20,
                           fontWeight: FontWeight.w500,
                           fontFamily: "Inter")),
-                ),
-                SizedBox(
-                  height: 10,
                 ),
                 CarouselSlider(
                   options: CarouselOptions(
@@ -139,7 +136,7 @@ class _HomeState extends State<Home> {
                                       Image.asset(
                                         item,
                                         fit: BoxFit.cover,
-                                        width: 8000,
+                                        width: 10000,
                                         height: 6000,
                                       ),
                                       Positioned(
