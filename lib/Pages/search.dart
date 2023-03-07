@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:geekiga/Pages/movie.dart';
 
 class Search extends StatelessWidget {
-  const Search({super.key});  
+  const Search({super.key});
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -19,8 +19,7 @@ class SearchPage extends StatefulWidget {
 }
 
 class _SearchPageState extends State<SearchPage> {
-
-  // final fieldText = TextEditingController();
+  // final fieldText = TextEditingController();2
   final TextEditingController _controller = new TextEditingController();
 
   // void clearText() {
@@ -42,19 +41,19 @@ class _SearchPageState extends State<SearchPage> {
 
   List<MovieList> display_list = List.from(movie_list);
 
-  void updateList(String value){
+  void updateList(String value) {
     //function buat filter out list
     setState(() {
-      display_list = movie_list.where((element) => element.movie_title!.toLowerCase().contains(value.toLowerCase())).toList();
+      display_list = movie_list
+          .where((element) =>
+              element.movie_title!.toLowerCase().contains(value.toLowerCase()))
+          .toList();
     });
   }
-
-  
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      
       backgroundColor: Colors.black,
       // appBar: PreferredSize( //wrap with PreferredSize
       //           preferredSize: Size.fromHeight(1), //height of appbar
@@ -69,7 +68,6 @@ class _SearchPageState extends State<SearchPage> {
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            
             SizedBox(
               height: 30.0,
             ),
@@ -82,31 +80,25 @@ class _SearchPageState extends State<SearchPage> {
                 filled: true,
                 fillColor: Color.fromARGB(255, 44, 44, 44),
                 border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(8.0), 
+                  borderRadius: BorderRadius.circular(8.0),
                   borderSide: BorderSide.none,
                 ),
                 hintText: "Search",
                 hintStyle: TextStyle(
                   color: Colors.white,
                 ),
-                
                 suffixIcon: IconButton(
-                  onPressed:  () {
-                     _controller.clear();
+                  onPressed: () {
+                    _controller.clear();
                   },
-                  icon: Icon(Icons.clear), 
-                  
-                ), 
-                
-
-                prefixIcon: IconButton(
-                  onPressed: (){
-                            Navigator.of(context).pop();
-                          }, 
-                  icon: Icon(Icons.arrow_back),
-                  
+                  icon: Icon(Icons.clear),
                 ),
-
+                prefixIcon: IconButton(
+                  onPressed: () {
+                    Navigator.of(context).pop();
+                  },
+                  icon: Icon(Icons.arrow_back),
+                ),
                 suffixIconColor: Color.fromARGB(255, 255, 255, 255),
                 prefixIconColor: Color.fromARGB(255, 255, 255, 255),
               ),
@@ -126,41 +118,38 @@ class _SearchPageState extends State<SearchPage> {
             ),
 
             Expanded(
-
-              child: display_list.length == 0 ?Center(
-                child: Text(
-                  "No result found", 
-                  style: TextStyle(
-                    color: Colors.white, 
-                    fontSize: 22.0, 
-                    fontWeight: FontWeight.bold
+              child: display_list.length == 0
+                  ? Center(
+                      child: Text(
+                        "No result found",
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 22.0,
+                            fontWeight: FontWeight.bold),
+                      ),
+                    )
+                  : ListView.builder(
+                      itemCount: display_list.length,
+                      itemBuilder: (context, index) => ListTile(
+                        title: Text(
+                          display_list[index].movie_title!,
+                          style: TextStyle(fontSize: 14, color: Colors.white),
+                        ),
+                        subtitle: Text(
+                          display_list[index].movie_sub!,
+                          style:
+                              TextStyle(color: Color.fromARGB(255, 72, 72, 72)),
+                        ),
+                        leading: SizedBox(
+                          height: 100,
+                          width: 50,
+                          child: Image(
+                              image: AssetImage(display_list[index].movie_img!),
+                              fit: BoxFit.cover),
+                        ),
+                      ),
                     ),
-                ),
-              )
-              
-              :ListView.builder(
-                itemCount: display_list.length,
-                itemBuilder: (context, index) => ListTile(
-                  title: Text(
-                    display_list[index].movie_title!,
-                    style: TextStyle(fontSize: 14, color: Colors.white),
-                  ),
-                  subtitle: Text(
-                    display_list[index].movie_sub!,
-                    style: TextStyle(color: Color.fromARGB(255, 72, 72, 72)),
-                  ),
-                  leading: SizedBox(
-                    height: 100,
-                    width: 50,
-                    child: Image(
-                        image: AssetImage(display_list[index].movie_img!),
-                        fit: BoxFit.cover),
-                  ),
-                ),
-              ),
-              
             ),
-
           ],
         ),
       ),
