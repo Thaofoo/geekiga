@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:geekiga/Pages/Chart.dart';
+import 'package:geekiga/Pages/chart.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'Pages/profile.dart';
 import 'Pages/watchlist.dart';
