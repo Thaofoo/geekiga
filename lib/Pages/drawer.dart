@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:geekiga/Pages/landing.dart';
 import 'package:geekiga/Pages/profile.dart';
 import 'package:geekiga/Pages/settings.dart';
+import 'package:geekiga/Pages/streamPlan.dart';
 
 const Color warnaEmas = Color.fromARGB(255, 184, 137, 33);
 
@@ -41,9 +42,17 @@ class DrawerWidget extends StatelessWidget {
               },
             ),
             _drawerItem(
-                icon: Icons.list_alt,
-                text: 'Stream Plan',
-                onTap: () => print('Tap Shared menu')),
+              icon: Icons.list_alt,
+              text: 'Stream Plan',
+              onTap: () {
+                Navigator.of(buildContext, rootNavigator: true).push(
+                  MaterialPageRoute(
+                      builder: (context) => StreamPlan(
+                            title: 'Stream Plan',
+                          )),
+                );
+              },
+            ),
             _drawerItem(
                 icon: Icons.access_time,
                 text: 'Recent',

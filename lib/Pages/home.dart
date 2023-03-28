@@ -204,7 +204,7 @@ class _HomeState extends State<Home> {
                             shape: BoxShape.circle,
                             color:
                                 (Theme.of(context).brightness == Brightness.dark
-                                        ? Colors.white
+                                        ? Color.fromARGB(255, 184, 137, 33)
                                         : Color.fromARGB(255, 184, 137, 33))
                                     .withOpacity(
                                         _current == entry.key ? 0.9 : 0.4)),
