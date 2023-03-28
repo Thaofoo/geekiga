@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:geekiga/Pages/login.dart';
 import 'package:geekiga/Pages/about.dart';
+import 'package:geekiga/main.dart';
 
 const Color warnaEmas = Color.fromARGB(255, 184, 137, 33);
 
@@ -10,15 +10,14 @@ class Settings extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 0, 0, 0),
+      // backgroundColor: Color.fromARGB(255, 0, 0, 0),
       bottomNavigationBar: null,
       appBar: AppBar(
         iconTheme: IconThemeData(
-          color: Colors.grey,
+          color: Colors.grey, //change your color here
         ),
         title: Text(
           'Settings',
-          style: TextStyle(color: Colors.white),
         ),
         centerTitle: true,
         backgroundColor: Color.fromARGB(0, 48, 48, 48),
@@ -29,7 +28,6 @@ class Settings extends StatelessWidget {
           ListTile(
               title: Text(
                 "Dark Mode",
-                style: TextStyle(color: Colors.white),
               ),
               leading: Icon(
                 Icons.dark_mode,
@@ -39,7 +37,6 @@ class Settings extends StatelessWidget {
           ListTile(
             title: Text(
               "About Us",
-              style: TextStyle(color: Colors.white),
             ),
             leading: Icon(
               Icons.privacy_tip_outlined,
@@ -85,12 +82,11 @@ class _SwitchExampleState extends State<SwitchExample> {
   Widget build(BuildContext context) {
     return Switch(
       // This bool value toggles the switch.
-      value: light,
       activeColor: warnaEmas,
-      onChanged: (bool value) {
-        // This is called when the user toggles the switch.
+      value: isSwitched.value,
+      onChanged: (newValue) {
         setState(() {
-          light = value;
+          isSwitched.value = newValue;
         });
       },
     );
