@@ -1,18 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:geekiga/Pages/moviePage.dart';
 import 'package:geekiga/Pages/search.dart';
 import 'package:geekiga/Pages/drawer.dart';
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:flutter/src/widgets/image.dart';
+import 'package:geekiga/main.dart';
+import 'package:geekiga/appTheme.dart';
 
 class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Home',
-      theme: ThemeData(primarySwatch: Colors.amber),
-      home: Home(title: 'Home'),
+    return ValueListenableBuilder<bool>(
+      valueListenable: isSwitched,
+      builder: (context, value, child) => MaterialApp(
+          debugShowCheckedModeBanner: false,
+          title: 'Geekiga',
+          theme: value ? temaGelap : temaTerang,
+          home: Home(
+            title: 'home',
+          )),
     );
   }
 }
@@ -43,13 +49,13 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black,
+      // backgroundColor: Colors.black,
       appBar: AppBar(
           systemOverlayStyle: SystemUiOverlayStyle.light,
-          iconTheme: IconThemeData(color: Colors.white),
+          // iconTheme: IconThemeData(color: Colors.white),
           toolbarHeight: 60,
           elevation: 0,
-          backgroundColor: Color.fromARGB(0, 255, 255, 255),
+          // backgroundColor: Color.fromARGB(242, 255, 255, 255),
           title: Padding(
             padding: const EdgeInsets.fromLTRB(0, 10, 0, 10),
             child: Row(
@@ -75,6 +81,7 @@ class _HomeState extends State<Home> {
                       padding: EdgeInsets.fromLTRB(16, 0, 0, 0),
                       child: ElevatedButton(
                           style: ElevatedButton.styleFrom(
+                              elevation: 0,
                               backgroundColor:
                                   Color.fromARGB(0, 255, 255, 255)),
                           onPressed: () {
@@ -85,7 +92,9 @@ class _HomeState extends State<Home> {
                           },
                           child: Icon(
                             Icons.search,
-                            color: Colors.white,
+                            color:
+                                Theme.of(context).appBarTheme.iconTheme?.color,
+                            // color: Colors.white,
                           )),
                     ),
                   ],
@@ -105,7 +114,7 @@ class _HomeState extends State<Home> {
                   padding: const EdgeInsets.fromLTRB(20, 0, 20, 10),
                   child: Text("Featured",
                       style: TextStyle(
-                          color: Colors.white,
+                          // color: Colors.white,
                           fontSize: 20,
                           fontWeight: FontWeight.w500,
                           fontFamily: "Inter")),
@@ -126,48 +135,57 @@ class _HomeState extends State<Home> {
                   ),
                   items: imgList
                       .map((item) => Container(
-                            child: Container(
-                              margin: EdgeInsets.all(1.0),
-                              child: ClipRRect(
-                                  borderRadius:
-                                      BorderRadius.all(Radius.circular(10.0)),
-                                  child: Stack(
-                                    children: <Widget>[
-                                      Image.asset(
-                                        item,
-                                        fit: BoxFit.cover,
-                                        width: 10000,
-                                        height: 6000,
-                                      ),
-                                      Positioned(
-                                        bottom: 0.0,
-                                        left: 0.0,
-                                        right: 0.0,
-                                        child: Container(
-                                          decoration: BoxDecoration(
-                                            gradient: LinearGradient(
-                                              colors: [
-                                                Color.fromARGB(200, 0, 0, 0),
-                                                Color.fromARGB(0, 0, 0, 0)
-                                              ],
-                                              begin: Alignment.bottomCenter,
-                                              end: Alignment.topCenter,
+                            child: InkWell(
+                              onTap: () {
+                                Navigator.of(context, rootNavigator: true).push(
+                                  MaterialPageRoute(
+                                      builder: (context) => const MoviePage()),
+                                );
+                              },
+                              child: Container(
+                                margin: EdgeInsets.all(1.0),
+                                child: ClipRRect(
+                                    borderRadius:
+                                        BorderRadius.all(Radius.circular(10.0)),
+                                    child: Stack(
+                                      children: <Widget>[
+                                        Image.asset(
+                                          item,
+                                          fit: BoxFit.cover,
+                                          width: 10000,
+                                          height: 6000,
+                                        ),
+                                        Positioned(
+                                          bottom: 0.0,
+                                          left: 0.0,
+                                          right: 0.0,
+                                          child: Container(
+                                            decoration: BoxDecoration(
+                                              gradient: LinearGradient(
+                                                colors: [
+                                                  Color.fromARGB(200, 0, 0, 0),
+                                                  Color.fromARGB(0, 0, 0, 0)
+                                                ],
+                                                begin: Alignment.bottomCenter,
+                                                end: Alignment.topCenter,
+                                              ),
                                             ),
-                                          ),
-                                          padding: EdgeInsets.symmetric(
-                                              vertical: 10.0, horizontal: 20.0),
-                                          child: Text(
-                                            'Trending ${imgList.indexOf(item) + 1}',
-                                            style: TextStyle(
-                                              color: Colors.white,
-                                              fontSize: 20.0,
-                                              fontWeight: FontWeight.bold,
+                                            padding: EdgeInsets.symmetric(
+                                                vertical: 10.0,
+                                                horizontal: 20.0),
+                                            child: Text(
+                                              'Trending ${imgList.indexOf(item) + 1}',
+                                              style: TextStyle(
+                                                color: Colors.white,
+                                                fontSize: 20.0,
+                                                fontWeight: FontWeight.bold,
+                                              ),
                                             ),
                                           ),
                                         ),
-                                      ),
-                                    ],
-                                  )),
+                                      ],
+                                    )),
+                              ),
                             ),
                           ))
                       .toList(),
@@ -198,7 +216,7 @@ class _HomeState extends State<Home> {
                   padding: EdgeInsets.fromLTRB(20, 0, 20, 0),
                   child: Text("Popular",
                       style: TextStyle(
-                          color: Colors.white,
+                          // color: Colors.white,
                           fontSize: 20,
                           fontWeight: FontWeight.w500,
                           fontFamily: "Inter")),
@@ -232,7 +250,7 @@ class _HomeState extends State<Home> {
                   padding: EdgeInsets.fromLTRB(20, 0, 20, 0),
                   child: Text("Animated Series",
                       style: TextStyle(
-                          color: Colors.white,
+                          // color: Colors.white,
                           fontSize: 20,
                           fontWeight: FontWeight.w500,
                           fontFamily: "Inter")),
@@ -266,7 +284,7 @@ class _HomeState extends State<Home> {
                   padding: EdgeInsets.fromLTRB(20, 0, 20, 0),
                   child: Text("Action",
                       style: TextStyle(
-                          color: Colors.white,
+                          // color: Colors.white,
                           fontSize: 20,
                           fontWeight: FontWeight.w500,
                           fontFamily: "Inter")),
@@ -300,7 +318,7 @@ class _HomeState extends State<Home> {
                   padding: EdgeInsets.fromLTRB(20, 0, 20, 0),
                   child: Text("Adventure",
                       style: TextStyle(
-                          color: Colors.white,
+                          // color: Colors.white,
                           fontSize: 20,
                           fontWeight: FontWeight.w500,
                           fontFamily: "Inter")),
@@ -329,6 +347,9 @@ class _HomeState extends State<Home> {
                       ],
                     ),
                   ),
+                ),
+                SizedBox(
+                  height: 60,
                 ),
               ],
             ))
@@ -377,19 +398,26 @@ class Poster extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(left: 2.5, right: 2.5),
-      child: Container(
-        width: 120,
-        height: 180,
-        color: Colors.transparent,
-        child: ClipRRect(
-          borderRadius: BorderRadius.circular(15),
-          child: Image(
-            image: AssetImage(image),
-            width: 120,
-            height: 180,
-            fit: BoxFit.fitWidth,
+    return InkWell(
+      onTap: () {
+        Navigator.of(context, rootNavigator: true).push(
+          MaterialPageRoute(builder: (context) => const MoviePage()),
+        );
+      },
+      child: Padding(
+        padding: const EdgeInsets.only(left: 2.5, right: 2.5),
+        child: Container(
+          width: 120,
+          height: 180,
+          color: Colors.transparent,
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(15),
+            child: Image(
+              image: AssetImage(image),
+              width: 120,
+              height: 180,
+              fit: BoxFit.fitWidth,
+            ),
           ),
         ),
       ),

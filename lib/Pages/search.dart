@@ -55,14 +55,7 @@ class _SearchPageState extends State<SearchPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black,
-      // appBar: PreferredSize( //wrap with PreferredSize
-      //           preferredSize: Size.fromHeight(1), //height of appbar
-      //           child: AppBar(//appbar title
-      //             backgroundColor: Colors.black,
-      //             elevation: 0.0, //appbar background color
-      //           ),
-      //   ),
+      resizeToAvoidBottomInset: false,
       body: Padding(
         padding: EdgeInsets.all(16),
         child: Column(
@@ -72,22 +65,21 @@ class _SearchPageState extends State<SearchPage> {
             SizedBox(
               height: 30.0,
             ),
-
             TextField(
               onChanged: (value) => updateList(value),
-              style: TextStyle(color: Colors.white),
+              // style: TextStyle(color: Colors.white),
               controller: _controller,
               decoration: InputDecoration(
                 filled: true,
-                fillColor: Color.fromARGB(255, 44, 44, 44),
+                // fillColor: Color.fromARGB(255, 44, 44, 44),
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(8.0),
                   borderSide: BorderSide.none,
                 ),
                 hintText: "Search",
                 hintStyle: TextStyle(
-                  color: Colors.white,
-                ),
+                    // color: Colors.white,
+                    ),
                 suffixIcon: IconButton(
                   onPressed: () {
                     _controller.clear();
@@ -100,24 +92,13 @@ class _SearchPageState extends State<SearchPage> {
                   },
                   icon: Icon(Icons.arrow_back),
                 ),
-                suffixIconColor: Color.fromARGB(255, 255, 255, 255),
-                prefixIconColor: Color.fromARGB(255, 255, 255, 255),
+                // suffixIconColor: Color.fromARGB(255, 255, 255, 255),
+                // prefixIconColor: Color.fromARGB(255, 255, 255, 255),
               ),
             ),
-
-            SizedBox(
-              height: 1.0,
-            ),
-
-            // Text(
-            //   "Popular",
-            //   style: TextStyle(color: Color.fromARGB(255, 66, 66, 66)),
-            // ),
-
             SizedBox(
               height: 10.0,
             ),
-
             Expanded(
               child: display_list.length == 0
                   ? Center(
@@ -134,7 +115,9 @@ class _SearchPageState extends State<SearchPage> {
                       itemBuilder: (context, index) => ListTile(
                         title: Text(
                           display_list[index].movie_title!,
-                          style: TextStyle(fontSize: 14, color: Colors.white),
+                          style: TextStyle(
+                            fontSize: 14,
+                          ),
                         ),
                         subtitle: Text(
                           display_list[index].movie_sub!,
