@@ -112,7 +112,7 @@ class _LoginPageState extends State<LoginPage> {
                             _passwordVisible
                                 ? Icons.visibility
                                 : Icons.visibility_off,
-                            color: Theme.of(context).primaryColorDark,
+                            color: Color(0xff707070),
                           ),
                           splashColor: Color.fromARGB(0, 0, 0, 0),
                           onPressed: () {
