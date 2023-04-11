@@ -14,23 +14,27 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final List<MovieList> movie_list = [
-      MovieList(
-          "Shingeki No Kyojin", "2013", "images/AOT.webp", "INI NANTI PANJANG"),
-      MovieList(
-          "Top Gun Maverick", "2022", "images/TGM.jpg", "INI NANTI PANJANG"),
-      MovieList("Chainsaw Man", "2022", "images/CSM.jpg", "INI NANTI PANJANG"),
-      MovieList("Spider-Man: No Way Home", "2021", "images/Spiderman.jpeg",
+      MovieList("Shingeki No Kyojin", "2013", "assets/images/AOT.webp",
           "INI NANTI PANJANG"),
-      MovieList("Spy X Family", "2022", "images/SXF.jpg", "INI NANTI PANJANG"),
-      MovieList("Interstellar", "2014", "images/interstellar.jpg",
+      MovieList("Top Gun Maverick", "2022", "assets/images/TGM.jpg",
           "INI NANTI PANJANG"),
-      MovieList("The Batman", "2022", "images/batman.jpg", "INI NANTI PANJANG"),
-      MovieList("John Wick: Chapter 3 - Parabellum", "2019", "images/JW.jpg",
-          "INI NANTI PANJANG"),
-      MovieList("Kimi No Nawa", "2016", "images/KNN.webp", "INI NANTI PANJANG"),
       MovieList(
-          "1917", "2020", "images/1917-portrait.jpg", "INI NANTI PANJANG"),
-      MovieList("Mortal Kombat", "2021", "images/MK-Portrait.webp",
+          "Chainsaw Man", "2022", "assets/images/CSM.jpg", "INI NANTI PANJANG"),
+      MovieList("Spider-Man: No Way Home", "2021",
+          "assets/images/Spiderman.jpeg", "INI NANTI PANJANG"),
+      MovieList(
+          "Spy X Family", "2022", "assets/images/SXF.jpg", "INI NANTI PANJANG"),
+      MovieList("Interstellar", "2014", "assets/images/interstellar.jpg",
+          "INI NANTI PANJANG"),
+      MovieList("The Batman", "2022", "assets/images/batman.jpg",
+          "INI NANTI PANJANG"),
+      MovieList("John Wick: Chapter 3 - Parabellum", "2019",
+          "assets/images/JW.jpg", "INI NANTI PANJANG"),
+      MovieList("Kimi No Nawa", "2016", "assets/images/KNN.webp",
+          "INI NANTI PANJANG"),
+      MovieList("1917", "2020", "assets/images/1917-portrait.jpg",
+          "INI NANTI PANJANG"),
+      MovieList("Mortal Kombat", "2021", "assets/images/MK-Portrait.webp",
           "INI NANTI PANJANG")
     ];
     final dataMain = movie_list;
@@ -54,7 +58,7 @@ class Home extends StatelessWidget {
                   children: const [
                     Image(
                         image: AssetImage(
-                      'images/geekiga.png',
+                      'assets/images/geekiga.png',
                     )),
                   ],
                 ),

@@ -3,7 +3,6 @@ import 'package:provider/provider.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import '../models/movieList.dart';
 import '../pages/moviePage.dart';
-
 import 'package:provider/provider.dart';
 
 class HomeCarousel extends StatefulWidget {
@@ -17,9 +16,9 @@ class _HomeCarousel extends State<HomeCarousel> {
   int _current = 0;
   final CarouselController _controller = CarouselController();
   final List<String> imgList = [
-    'images/1917.jpg',
-    'images/CSM-F.png',
-    'images/mortalkombat.jpeg',
+    'assets/images/1917.jpg',
+    'assets/images/CSM-F.png',
+    'assets/images/mortalkombat.jpeg',
   ];
 
   @override
