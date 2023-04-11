@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:geekiga/navbar.dart';
-import 'package:geekiga/Pages/login.dart';
+import 'package:geekiga/pages/login.dart';
+import 'package:geekiga/newNavbar.dart';
 
 var _passwordVisible = false;
 
@@ -9,17 +9,17 @@ class SignUp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: LoginPage(),
+      body: SignUpPage(),
     );
   }
 }
 
-class LoginPage extends StatefulWidget {
+class SignUpPage extends StatefulWidget {
   @override
-  _LoginPageState createState() => _LoginPageState();
+  _SignUpPageState createState() => _SignUpPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _SignUpPageState extends State<SignUpPage> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -79,13 +79,13 @@ class _LoginPageState extends State<LoginPage> {
                 child: TextFormField(
                   style: TextStyle(color: Colors.white),
                   decoration: InputDecoration(
-                      fillColor: Color.fromARGB(255, 44, 44, 44),
+                      fillColor: Color(0xff2C2C2C).withOpacity(0.51),
                       filled: true,
                       border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(45.0),
                           borderSide: BorderSide.none),
                       prefixIcon: Icon(Icons.person_outline_sharp),
-                      prefixIconColor: Color.fromARGB(255, 112, 112, 112),
+                      prefixIconColor: Color(0xff707070),
                       // labelText: 'Email',
                       hintText: 'Email',
                       hintStyle:
@@ -100,7 +100,7 @@ class _LoginPageState extends State<LoginPage> {
                   obscureText: !_passwordVisible,
                   style: TextStyle(color: Colors.white),
                   decoration: InputDecoration(
-                      fillColor: Color.fromARGB(255, 44, 44, 44),
+                      fillColor: Color(0xff2C2C2C).withOpacity(0.51),
                       filled: true,
                       border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(45.0),
@@ -113,7 +113,7 @@ class _LoginPageState extends State<LoginPage> {
                           _passwordVisible
                               ? Icons.visibility
                               : Icons.visibility_off,
-                          color: Theme.of(context).primaryColorDark,
+                          color: Color(0xff707070),
                         ),
                         splashColor: Color.fromARGB(0, 0, 0, 0),
                         onPressed: () {
@@ -137,7 +137,7 @@ class _LoginPageState extends State<LoginPage> {
                   obscureText: !_passwordVisible,
                   style: TextStyle(color: Colors.white),
                   decoration: InputDecoration(
-                      fillColor: Color.fromARGB(255, 44, 44, 44),
+                      fillColor: Color(0xff2C2C2C).withOpacity(0.51),
                       filled: true,
                       border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(45.0),
@@ -150,7 +150,7 @@ class _LoginPageState extends State<LoginPage> {
                           _passwordVisible
                               ? Icons.visibility
                               : Icons.visibility_off,
-                          color: Theme.of(context).primaryColorDark,
+                          color: Color(0xff707070),
                         ),
                         splashColor: Color.fromARGB(0, 0, 0, 0),
                         onPressed: () {
@@ -178,7 +178,7 @@ class _LoginPageState extends State<LoginPage> {
                 child: TextButton(
                   onPressed: () {
                     Navigator.pushReplacement(
-                        context, MaterialPageRoute(builder: (_) => Navbar()));
+                        context, MaterialPageRoute(builder: (_) => Navbar2()));
                   },
                   child: Text(
                     'Continue',
@@ -212,7 +212,7 @@ class _LoginPageState extends State<LoginPage> {
                               MaterialPageRoute(builder: (_) => Login()));
                         },
                         child: Text(
-                          'Login',
+                          'Sign In',
                           style: TextStyle(
                               color: Color.fromARGB(255, 184, 137, 33),
                               fontSize: 15),

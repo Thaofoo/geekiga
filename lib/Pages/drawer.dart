@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:geekiga/Pages/landing.dart';
-import 'package:geekiga/Pages/profile.dart';
-import 'package:geekiga/Pages/settings.dart';
-import 'package:geekiga/Pages/streamPlan.dart';
+import 'package:geekiga/pages/landing.dart';
+import 'package:geekiga/pages/profile.dart';
+import 'package:geekiga/pages/settings.dart';
+import 'package:geekiga/pages/streamPlan.dart';
 
 const Color warnaEmas = Color.fromARGB(255, 184, 137, 33);
 

@@ -1,53 +1,40 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:geekiga/Pages/moviePage.dart';
-import 'package:geekiga/Pages/search.dart';
-import 'package:geekiga/Pages/drawer.dart';
+import 'package:geekiga/pages/search.dart';
+import 'package:geekiga/pages/drawer.dart';
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:geekiga/main.dart';
-import 'package:geekiga/appTheme.dart';
+import 'package:geekiga/widgets/featured.dart';
+import '../models/movieList.dart';
+import 'package:provider/provider.dart';
+import '../widgets/homeCarousel.dart';
 
-class HomePage extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return ValueListenableBuilder<bool>(
-      valueListenable: isSwitched,
-      builder: (context, value, child) => MaterialApp(
-          debugShowCheckedModeBanner: false,
-          title: 'Geekiga',
-          theme: value ? temaGelap : temaTerang,
-          home: Home(
-            title: 'home',
-          )),
-    );
-  }
-}
-
-class Home extends StatefulWidget {
-  Home({required this.title});
-
-  final String title;
-
-  @override
-  State<Home> createState() => _HomeState();
-}
-
-class _HomeState extends State<Home> {
-  int _current = 0;
-  final CarouselController _controller = CarouselController();
-  final List<String> imgList = [
-    'images/1917.jpg',
-    'images/CSM-F.png',
-    'images/mortalkombat.jpeg',
-  ];
-
-  @override
-  void initState() {
-    super.initState();
-  }
+class Home extends StatelessWidget {
+  Home({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final List<MovieList> movie_list = [
+      MovieList(
+          "Shingeki No Kyojin", "2013", "images/AOT.webp", "INI NANTI PANJANG"),
+      MovieList(
+          "Top Gun Maverick", "2022", "images/TGM.jpg", "INI NANTI PANJANG"),
+      MovieList("Chainsaw Man", "2022", "images/CSM.jpg", "INI NANTI PANJANG"),
+      MovieList("Spider-Man: No Way Home", "2021", "images/Spiderman.jpeg",
+          "INI NANTI PANJANG"),
+      MovieList("Spy X Family", "2022", "images/SXF.jpg", "INI NANTI PANJANG"),
+      MovieList("Interstellar", "2014", "images/interstellar.jpg",
+          "INI NANTI PANJANG"),
+      MovieList("The Batman", "2022", "images/batman.jpg", "INI NANTI PANJANG"),
+      MovieList("John Wick: Chapter 3 - Parabellum", "2019", "images/JW.jpg",
+          "INI NANTI PANJANG"),
+      MovieList("Kimi No Nawa", "2016", "images/KNN.webp", "INI NANTI PANJANG"),
+      MovieList(
+          "1917", "2020", "images/1917-portrait.jpg", "INI NANTI PANJANG"),
+      MovieList("Mortal Kombat", "2021", "images/MK-Portrait.webp",
+          "INI NANTI PANJANG")
+    ];
+    final dataMain = movie_list;
+
     return Scaffold(
       // backgroundColor: Colors.black,
       appBar: AppBar(
@@ -65,10 +52,6 @@ class _HomeState extends State<Home> {
                 Row(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: const [
-                    // Padding(
-                    //   padding: EdgeInsets.fromLTRB(10, 0, 20, 0),
-                    //   child: Icon(Icons.menu, color: Colors.white,),
-                    // ),
                     Image(
                         image: AssetImage(
                       'images/geekiga.png',
@@ -119,99 +102,7 @@ class _HomeState extends State<Home> {
                           fontWeight: FontWeight.w500,
                           fontFamily: "Inter")),
                 ),
-                CarouselSlider(
-                  options: CarouselOptions(
-                    autoPlay: true,
-                    autoPlayInterval: Duration(seconds: 4),
-                    aspectRatio: 2.0,
-                    viewportFraction: 0.85,
-                    onPageChanged: (index, carouselReason) {
-                      print(index);
-                      setState(() {
-                        _current = index;
-                      });
-                    },
-                    enlargeCenterPage: true,
-                  ),
-                  items: imgList
-                      .map((item) => Container(
-                            child: InkWell(
-                              onTap: () {
-                                Navigator.of(context, rootNavigator: true).push(
-                                  MaterialPageRoute(
-                                      builder: (context) => const MoviePage()),
-                                );
-                              },
-                              child: Container(
-                                margin: EdgeInsets.all(1.0),
-                                child: ClipRRect(
-                                    borderRadius:
-                                        BorderRadius.all(Radius.circular(10.0)),
-                                    child: Stack(
-                                      children: <Widget>[
-                                        Image.asset(
-                                          item,
-                                          fit: BoxFit.cover,
-                                          width: 10000,
-                                          height: 6000,
-                                        ),
-                                        Positioned(
-                                          bottom: 0.0,
-                                          left: 0.0,
-                                          right: 0.0,
-                                          child: Container(
-                                            decoration: BoxDecoration(
-                                              gradient: LinearGradient(
-                                                colors: [
-                                                  Color.fromARGB(200, 0, 0, 0),
-                                                  Color.fromARGB(0, 0, 0, 0)
-                                                ],
-                                                begin: Alignment.bottomCenter,
-                                                end: Alignment.topCenter,
-                                              ),
-                                            ),
-                                            padding: EdgeInsets.symmetric(
-                                                vertical: 10.0,
-                                                horizontal: 20.0),
-                                            child: Text(
-                                              'Trending ${imgList.indexOf(item) + 1}',
-                                              style: TextStyle(
-                                                color: Colors.white,
-                                                fontSize: 20.0,
-                                                fontWeight: FontWeight.bold,
-                                              ),
-                                            ),
-                                          ),
-                                        ),
-                                      ],
-                                    )),
-                              ),
-                            ),
-                          ))
-                      .toList(),
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: imgList.asMap().entries.map((entry) {
-                    return GestureDetector(
-                      onTap: () => _controller.animateToPage(entry.key),
-                      child: Container(
-                        width: 8.0,
-                        height: 8.0,
-                        margin: EdgeInsets.symmetric(
-                            vertical: 8.0, horizontal: 4.0),
-                        decoration: BoxDecoration(
-                            shape: BoxShape.circle,
-                            color:
-                                (Theme.of(context).brightness == Brightness.dark
-                                        ? Color.fromARGB(255, 184, 137, 33)
-                                        : Color.fromARGB(255, 184, 137, 33))
-                                    .withOpacity(
-                                        _current == entry.key ? 0.9 : 0.4)),
-                      ),
-                    );
-                  }).toList(),
-                ),
+                SizedBox(height: 210, child: HomeCarousel()),
                 const Padding(
                   padding: EdgeInsets.fromLTRB(20, 0, 20, 0),
                   child: Text("Popular",
@@ -222,27 +113,15 @@ class _HomeState extends State<Home> {
                           fontFamily: "Inter")),
                 ),
                 Padding(
-                  padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
+                  padding: const EdgeInsets.all(10),
                   child: SizedBox(
                     height: 180,
-                    child: ListView(
+                    child: ListView.builder(
                       scrollDirection: Axis.horizontal,
-                      children: [
-                        Poster(image: aot),
-                        Poster(image: aot1),
-                        Poster(image: aot2),
-                        Poster(image: aot3),
-                        Poster(image: aot4),
-                        Poster(image: aot1),
-                        Poster(image: aot2),
-                        Poster(image: aot),
-                        Poster(image: aot1),
-                        Poster(image: aot2),
-                        Poster(image: aot3),
-                        Poster(image: aot4),
-                        Poster(image: aot1),
-                        Poster(image: aot2),
-                      ],
+                      itemBuilder: (context, index) =>
+                          ChangeNotifierProvider.value(
+                              value: dataMain[index], child: FeaturedMovie()),
+                      itemCount: dataMain.length,
                     ),
                   ),
                 ),
@@ -256,27 +135,15 @@ class _HomeState extends State<Home> {
                           fontFamily: "Inter")),
                 ),
                 Padding(
-                  padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
+                  padding: const EdgeInsets.all(10),
                   child: SizedBox(
                     height: 180,
-                    child: ListView(
+                    child: ListView.builder(
                       scrollDirection: Axis.horizontal,
-                      children: [
-                        Poster(image: aot),
-                        Poster(image: aot1),
-                        Poster(image: aot2),
-                        Poster(image: aot3),
-                        Poster(image: aot4),
-                        Poster(image: aot1),
-                        Poster(image: aot2),
-                        Poster(image: aot),
-                        Poster(image: aot1),
-                        Poster(image: aot2),
-                        Poster(image: aot3),
-                        Poster(image: aot4),
-                        Poster(image: aot1),
-                        Poster(image: aot2),
-                      ],
+                      itemBuilder: (context, index) =>
+                          ChangeNotifierProvider.value(
+                              value: dataMain[index], child: FeaturedMovie()),
+                      itemCount: dataMain.length,
                     ),
                   ),
                 ),
@@ -290,27 +157,15 @@ class _HomeState extends State<Home> {
                           fontFamily: "Inter")),
                 ),
                 Padding(
-                  padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
+                  padding: const EdgeInsets.all(10),
                   child: SizedBox(
                     height: 180,
-                    child: ListView(
+                    child: ListView.builder(
                       scrollDirection: Axis.horizontal,
-                      children: [
-                        Poster(image: aot),
-                        Poster(image: aot1),
-                        Poster(image: aot2),
-                        Poster(image: aot3),
-                        Poster(image: aot4),
-                        Poster(image: aot1),
-                        Poster(image: aot2),
-                        Poster(image: aot),
-                        Poster(image: aot1),
-                        Poster(image: aot2),
-                        Poster(image: aot3),
-                        Poster(image: aot4),
-                        Poster(image: aot1),
-                        Poster(image: aot2),
-                      ],
+                      itemBuilder: (context, index) =>
+                          ChangeNotifierProvider.value(
+                              value: dataMain[index], child: FeaturedMovie()),
+                      itemCount: dataMain.length,
                     ),
                   ),
                 ),
@@ -324,32 +179,20 @@ class _HomeState extends State<Home> {
                           fontFamily: "Inter")),
                 ),
                 Padding(
-                  padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
+                  padding: const EdgeInsets.all(10),
                   child: SizedBox(
                     height: 180,
-                    child: ListView(
+                    child: ListView.builder(
                       scrollDirection: Axis.horizontal,
-                      children: [
-                        Poster(image: aot),
-                        Poster(image: aot1),
-                        Poster(image: aot2),
-                        Poster(image: aot3),
-                        Poster(image: aot4),
-                        Poster(image: aot1),
-                        Poster(image: aot2),
-                        Poster(image: aot),
-                        Poster(image: aot1),
-                        Poster(image: aot2),
-                        Poster(image: aot3),
-                        Poster(image: aot4),
-                        Poster(image: aot1),
-                        Poster(image: aot2),
-                      ],
+                      itemBuilder: (context, index) =>
+                          ChangeNotifierProvider.value(
+                              value: dataMain[index], child: FeaturedMovie()),
+                      itemCount: dataMain.length,
                     ),
                   ),
                 ),
                 SizedBox(
-                  height: 60,
+                  height: 20,
                 ),
               ],
             ))
@@ -359,79 +202,3 @@ class _HomeState extends State<Home> {
     );
   }
 }
-
-class Featured extends StatelessWidget {
-  final String image;
-
-  Featured({
-    required this.image,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(right: 35),
-      child: Container(
-        width: 390,
-        height: 300,
-        color: Colors.transparent,
-        child: ClipRRect(
-          borderRadius: BorderRadius.circular(20),
-          child: Image(
-            image: AssetImage(image),
-            width: 280,
-            height: 130,
-            fit: BoxFit.cover,
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-class Poster extends StatelessWidget {
-  final String image;
-
-  Poster({
-    required this.image,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return InkWell(
-      onTap: () {
-        Navigator.of(context, rootNavigator: true).push(
-          MaterialPageRoute(builder: (context) => const MoviePage()),
-        );
-      },
-      child: Padding(
-        padding: const EdgeInsets.only(left: 2.5, right: 2.5),
-        child: Container(
-          width: 120,
-          height: 180,
-          color: Colors.transparent,
-          child: ClipRRect(
-            borderRadius: BorderRadius.circular(15),
-            child: Image(
-              image: AssetImage(image),
-              width: 120,
-              height: 180,
-              fit: BoxFit.fitWidth,
-            ),
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-//Images Featured
-String warMovie = "images/1917.jpg";
-String mortalKombat = "images/mortalkombat.jpeg";
-
-//Images Poster
-String aot = "images/image 6.png";
-String aot1 = "images/image 8.png";
-String aot2 = "images/image 16.png";
-String aot3 = "images/image 11.png";
-String aot4 = "images/image 14.png";

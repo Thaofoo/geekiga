@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:geekiga/Pages/landing.dart';
+import 'package:geekiga/pages/landing.dart';
 import 'package:geekiga/appTheme.dart';
 
 ValueNotifier<bool> isSwitched = ValueNotifier<bool>(true);

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:geekiga/Pages/about.dart';
+import 'package:geekiga/pages/about.dart';
 import 'package:geekiga/main.dart';
 
 const Color warnaEmas = Color.fromARGB(255, 184, 137, 33);

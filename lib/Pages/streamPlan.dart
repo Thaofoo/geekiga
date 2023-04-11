@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:geekiga/Pages/moviePage.dart';
-import 'package:geekiga/Pages/search.dart';
-import 'package:geekiga/Pages/drawer.dart';
+import 'package:geekiga/pages/moviePage.dart';
+import 'package:geekiga/pages/search.dart';
+import 'package:geekiga/pages/drawer.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:geekiga/main.dart';
 import 'package:geekiga/appTheme.dart';
@@ -84,12 +84,12 @@ class _StreamPlanState extends State<StreamPlan> {
                   items: imgList
                       .map((item) => Container(
                             child: InkWell(
-                              onTap: () {
-                                Navigator.of(context, rootNavigator: true).push(
-                                  MaterialPageRoute(
-                                      builder: (context) => const MoviePage()),
-                                );
-                              },
+                              // onTap: () {
+                              //   Navigator.of(context, rootNavigator: true).push(
+                              //     MaterialPageRoute(
+                              //         builder: (context) => MoviePage()),
+                              //   );
+                              // },
                               child: Container(
                                 margin: EdgeInsets.all(1.0),
                                 child: ClipRRect(

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:geekiga/navbar.dart';
-import 'package:geekiga/Pages/login.dart';
+import 'package:geekiga/pages/login.dart';
 
 var _passwordVisible = false;
 

@@ -1,7 +1,13 @@
 import 'package:flutter/material.dart';
 
 class MoviePage extends StatelessWidget {
-  const MoviePage({super.key});
+  String movie_title;
+  String movie_year;
+  String movie_img;
+  String movie_desc;
+
+  MoviePage(this.movie_title, this.movie_year, this.movie_img, this.movie_desc,
+      {super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -11,7 +17,7 @@ class MoviePage extends StatelessWidget {
           Opacity(
             opacity: 0.6,
             child: Image.asset(
-              "images/AOT.webp",
+              movie_img,
               height: 280,
               width: double.infinity,
               fit: BoxFit.cover,
@@ -69,7 +75,7 @@ class MoviePage extends StatelessWidget {
                         child: ClipRRect(
                           borderRadius: BorderRadius.circular(20),
                           child: Image.asset(
-                            "images/AOT.webp",
+                            movie_img,
                             height: 220,
                             width: 150,
                             fit: BoxFit.cover,
@@ -147,7 +153,7 @@ class MoviePage extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        "Shingeki No Kyojin",
+                        movie_title,
                         style: TextStyle(
                           // color: Colors.white,
                           fontWeight: FontWeight.w800,

@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:geekiga/Pages/chart.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
-import 'package/my_flutter_app_icons.dart';
-import 'Pages/profile.dart';
-import 'Pages/watchlist.dart';
-import 'Pages/home.dart';
-import 'Pages/download.dart';
+import 'packages/my_flutter_app_icons.dart';
+import 'pages/profile.dart';
+import 'pages/watchlist.dart';
+import 'pages/home.dart';
+import 'pages/download.dart';
 
 const Color warnaEmas = Color.fromARGB(255, 184, 137, 33);
 
 class Navbar2 extends StatefulWidget {
   int _currentIndex = 0;
   List pages = [
-    HomePage(),
+    Home(),
     const ChartPage(),
     const WatchListPage(),
     const DownloadPage()

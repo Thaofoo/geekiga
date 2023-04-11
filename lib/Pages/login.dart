@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:geekiga/navbar.dart';
-import 'package:geekiga/Pages/signup.dart';
-import 'package:geekiga/Pages/forget.dart';
+import 'package:geekiga/pages/signup.dart';
+import 'package:geekiga/pages/forget.dart';
 import 'package:geekiga/newNavbar.dart';
-import '../package/my_flutter_app_icons.dart';
+import '../packages/my_flutter_app_icons.dart';
 
 var _passwordVisible = false;
 const Color warnaEmas = Color.fromARGB(255, 184, 137, 33);
@@ -24,6 +23,10 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
+  // final TextEditingController Controller = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -68,6 +71,7 @@ class _LoginPageState extends State<LoginPage> {
                 //padding: const EdgeInsets.only(left:15.0,right: 15.0,top:0,bottom: 0),
                 padding: EdgeInsets.symmetric(horizontal: 15),
                 child: TextFormField(
+                  controller: emailController,
                   style: TextStyle(color: Colors.white),
                   decoration: InputDecoration(
                       fillColor: Color(0xff2C2C2C).withOpacity(0.51),
@@ -91,6 +95,7 @@ class _LoginPageState extends State<LoginPage> {
                     left: 15.0, right: 15.0, top: 15, bottom: 0),
                 //padding: EdgeInsets.symmetric(horizontal: 15),
                 child: TextFormField(
+                  controller: passwordController,
                   obscureText: !_passwordVisible,
                   style: TextStyle(color: Colors.white),
                   decoration: InputDecoration(
@@ -148,7 +153,7 @@ class _LoginPageState extends State<LoginPage> {
               ),
               Container(
                 height: 45,
-                width: 350,
+                width: 320,
                 margin: EdgeInsets.only(top: 15),
                 decoration: BoxDecoration(
                     color: Color.fromARGB(255, 81, 58, 9),
