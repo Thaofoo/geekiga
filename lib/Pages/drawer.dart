@@ -151,7 +151,8 @@ Widget _drawerHeader() {
             bottom: BorderSide(
                 color: Color.fromARGB(150, 79, 79, 79), width: 0.75))),
     currentAccountPicture: ClipOval(
-      child: Image(image: AssetImage('images/edo.jpg'), fit: BoxFit.cover),
+      child:
+          Image(image: AssetImage('assets/images/edo.jpg'), fit: BoxFit.cover),
     ),
     accountName: Text(
       'Nathanael Erlando Putra',

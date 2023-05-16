@@ -15,7 +15,6 @@ class Navbar2 extends StatefulWidget {
     Home(),
     const ChartPage(),
     const WatchListPage(),
-    const DownloadPage()
   ];
 
   Navbar2({super.key});
@@ -120,15 +119,6 @@ class _NavbarState extends State<Navbar2> {
                         ),
                       ),
                       label: 'Watchlist',
-                    ),
-                    BottomNavigationBarItem(
-                      icon: Container(
-                        margin: EdgeInsets.only(bottom: 5, top: 3),
-                        child: Icon(
-                          MyFlutterApp.download,
-                        ),
-                      ),
-                      label: 'Downloads',
                     ),
                   ],
                 ),

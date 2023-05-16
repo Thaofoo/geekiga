@@ -88,6 +88,7 @@ class _SwitchExampleState extends State<SwitchExample> {
         setState(() {
           isSwitched.value = newValue;
         });
+        print(isSwitched.value);
       },
     );
   }

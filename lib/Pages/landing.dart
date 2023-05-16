@@ -8,7 +8,8 @@ class LandingPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: const BoxDecoration(
-        image: DecorationImage(image: AssetImage("images/tagline_bg.png")),
+        image:
+            DecorationImage(image: AssetImage("assets/images/tagline_bg.png")),
         gradient: LinearGradient(
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
@@ -39,7 +40,7 @@ class LandingPage extends StatelessWidget {
                   child: Container(
                       width: 300,
                       height: 250,
-                      child: Image.asset('images/Splash.png')),
+                      child: Image.asset('assets/images/Splash.png')),
                 ),
               ),
               Padding(
@@ -79,7 +80,7 @@ class LandingPage extends StatelessWidget {
                 ),
               ),
               SizedBox(
-                height: 100,
+                height: 80,
               ),
             ],
           ),

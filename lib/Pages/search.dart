@@ -27,17 +27,19 @@ class _SearchPageState extends State<SearchPage> {
   // }
 
   static List<MovieSearch> movie_list = [
-    MovieSearch("Shingeki No Kyojin", "2013", "images/AOT.webp"),
-    MovieSearch("Top Gun Maverick", "2022", "images/TGM.jpg"),
-    MovieSearch("Chainsaw Man", "2022", "images/CSM.jpg"),
-    MovieSearch("Spider-Man: No Way Home", "2021", "images/Spiderman.jpeg"),
-    MovieSearch("Spy X Family", "2022", "images/SXF.jpg"),
-    MovieSearch("Interstellar", "2014", "images/interstellar.jpg"),
-    MovieSearch("The Batman", "2022", "images/batman.jpg"),
-    MovieSearch("John Wick: Chapter 3 - Parabellum", "2019", "images/JW.jpg"),
-    MovieSearch("Kimi No Nawa", "2016", "images/KNN.webp"),
-    MovieSearch("1917", "2020", "images/1917-portrait.jpg"),
-    MovieSearch("Mortal Kombat", "2021", "images/MK-Portrait.webp")
+    MovieSearch("Shingeki No Kyojin", "2013", "assets/images/AOT.webp"),
+    MovieSearch("Top Gun Maverick", "2022", "assets/images/TGM.jpg"),
+    MovieSearch("Chainsaw Man", "2022", "assets/images/CSM.jpg"),
+    MovieSearch(
+        "Spider-Man: No Way Home", "2021", "assets/images/Spiderman.jpeg"),
+    MovieSearch("Spy X Family", "2022", "assets/images/SXF.jpg"),
+    MovieSearch("Interstellar", "2014", "assets/images/interstellar.jpg"),
+    MovieSearch("The Batman", "2022", "assets/images/batman.jpg"),
+    MovieSearch(
+        "John Wick: Chapter 3 - Parabellum", "2019", "assets/images/JW.jpg"),
+    MovieSearch("Kimi No Nawa", "2016", "assets/images/KNN.webp"),
+    MovieSearch("1917", "2020", "assets/images/1917-portrait.jpg"),
+    MovieSearch("Mortal Kombat", "2021", "assets/images/MK-Portrait.webp")
   ];
 
   List<MovieSearch> display_list = List.from(movie_list);

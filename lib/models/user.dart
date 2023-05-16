@@ -1,10 +1,16 @@
 import 'package:flutter/material.dart';
 
 class User with ChangeNotifier {
+  String id;
+  String email;
   String firstName;
   String lastName;
-  String email;
   String password;
 
-  User(this.firstName, this.lastName, this.email, this.password);
+  User(
+      {required this.id,
+      required this.email,
+      required this.firstName,
+      required this.lastName,
+      required this.password});
 }

@@ -4,6 +4,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import '../models/movieList.dart';
 import '../pages/moviePage.dart';
 import 'package:provider/provider.dart';
+import '../providers/movieProvider.dart';
 
 class HomeCarousel extends StatefulWidget {
   @override
@@ -24,6 +25,7 @@ class _HomeCarousel extends State<HomeCarousel> {
   @override
   Widget build(BuildContext context) {
     // final data = Provider.of<MovieList>(context);
+    // final imgList = data.movie_img.characters;
     return Column(
       children: [
         CarouselSlider(
@@ -64,7 +66,7 @@ class _HomeCarousel extends State<HomeCarousel> {
                                   item,
                                   fit: BoxFit.cover,
                                   width: 10000,
-                                  height: 6000,
+                                  height: 5000,
                                 ),
                                 Positioned(
                                   bottom: 0.0,

@@ -15,7 +15,7 @@ class FeaturedMovie extends StatelessWidget {
         Navigator.push(
             context,
             MaterialPageRoute(
-                builder: (context) => MoviePage(data.movie_title,
+                builder: (context) => MoviePage(data.id, data.movie_title,
                     data.movie_year, data.movie_img, data.movie_desc)));
       },
       child: Padding(
@@ -37,56 +37,6 @@ class FeaturedMovie extends StatelessWidget {
                   fit: BoxFit.cover,
                 ),
               ),
-              // Row(
-              //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              //   children: [
-              //     Column(
-              //         crossAxisAlignment: CrossAxisAlignment.start,
-              //         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              //         children: [
-              //           Padding(
-              //             padding: const EdgeInsets.fromLTRB(2, 10, 0, 5),
-              //             child: SizedBox(
-              //               width: 190,
-              //               child: Text(
-              //                 data.movie_title,
-              //                 maxLines: 1,
-              //                 overflow: TextOverflow.ellipsis,
-              //               ),
-              //             ),
-              //           ),
-              //           // Row(
-              //           //   mainAxisAlignment: MainAxisAlignment.start,
-              //           //   children: [
-              //           //     const Padding(
-              //           //       padding: EdgeInsets.fromLTRB(2, 2, 8, 0),
-              //           //       child: Text(
-              //           //         "• Science",
-              //           //       ),
-              //           //     ),
-              //           //     Padding(
-              //           //       padding: const EdgeInsets.fromLTRB(0, 2, 8, 0),
-              //           //       child: Text(
-              //           //         "• Year ${data.movie_year}",
-              //           //       ),
-              //           //     ),
-              //           //     const Padding(
-              //           //       padding: EdgeInsets.fromLTRB(0, 2, 8, 0),
-              //           //       child: Text(
-              //           //         "• 2.5k View",
-              //           //       ),
-              //           //     ),
-              //           //   ],
-              //           // ),
-              //         ]),
-              //     // IconButton(
-              //     //   splashRadius: 10,
-              //     //   onPressed: () {},
-              //     //   icon: const Icon(Icons.favorite_border_rounded),
-              //     //   iconSize: 20,
-              //     // )
-              //   ],
-              // )
             ],
           ),
         ),

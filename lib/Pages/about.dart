@@ -38,7 +38,7 @@ class About extends StatelessWidget {
             SizedBox(height: 20),
             Center(
               child: CircleAvatar(
-                foregroundImage: AssetImage('images/topik.jpg'),
+                foregroundImage: AssetImage('assets/images/topik.jpg'),
                 backgroundColor: Colors.white,
                 radius: 60,
               ),
@@ -61,7 +61,7 @@ class About extends StatelessWidget {
             ),
             Center(
               child: CircleAvatar(
-                foregroundImage: AssetImage('images/edo.jpg'),
+                foregroundImage: AssetImage('assets/images/edo.jpg'),
                 backgroundColor: Colors.white,
                 radius: 60,
               ),

@@ -1,43 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:geekiga/appTheme.dart';
 import 'package:geekiga/pages/search.dart';
 import 'package:geekiga/pages/drawer.dart';
-import 'package:carousel_slider/carousel_slider.dart';
 import 'package:geekiga/widgets/featured.dart';
-import '../models/movieList.dart';
 import 'package:provider/provider.dart';
 import '../widgets/homeCarousel.dart';
+import '../providers/movieProvider.dart';
 
 class Home extends StatelessWidget {
   Home({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final List<MovieList> movie_list = [
-      MovieList("Shingeki No Kyojin", "2013", "assets/images/AOT.webp",
-          "INI NANTI PANJANG"),
-      MovieList("Top Gun Maverick", "2022", "assets/images/TGM.jpg",
-          "INI NANTI PANJANG"),
-      MovieList(
-          "Chainsaw Man", "2022", "assets/images/CSM.jpg", "INI NANTI PANJANG"),
-      MovieList("Spider-Man: No Way Home", "2021",
-          "assets/images/Spiderman.jpeg", "INI NANTI PANJANG"),
-      MovieList(
-          "Spy X Family", "2022", "assets/images/SXF.jpg", "INI NANTI PANJANG"),
-      MovieList("Interstellar", "2014", "assets/images/interstellar.jpg",
-          "INI NANTI PANJANG"),
-      MovieList("The Batman", "2022", "assets/images/batman.jpg",
-          "INI NANTI PANJANG"),
-      MovieList("John Wick: Chapter 3 - Parabellum", "2019",
-          "assets/images/JW.jpg", "INI NANTI PANJANG"),
-      MovieList("Kimi No Nawa", "2016", "assets/images/KNN.webp",
-          "INI NANTI PANJANG"),
-      MovieList("1917", "2020", "assets/images/1917-portrait.jpg",
-          "INI NANTI PANJANG"),
-      MovieList("Mortal Kombat", "2021", "assets/images/MK-Portrait.webp",
-          "INI NANTI PANJANG")
-    ];
-    final dataMain = movie_list;
+    final list = Provider.of<Movies>(context);
+    final movie_list = list.movies_list;
+    String logoGelap = 'assets/images/geekiga.png';
+    String logoTerang = 'assets/images/GeekiigaDark.png';
 
     return Scaffold(
       // backgroundColor: Colors.black,
@@ -55,11 +34,20 @@ class Home extends StatelessWidget {
               children: [
                 Row(
                   crossAxisAlignment: CrossAxisAlignment.center,
-                  children: const [
+                  children: [
+                    // (ThemeData == temaTerang)
+                    //     ? Image(
+                    //         image: AssetImage(
+                    //         logoTerang,
+                    //       ))
+                    //     : Image(
+                    //         image: AssetImage(
+                    //         logoGelap,
+                    //       ))
                     Image(
-                        image: AssetImage(
-                      'assets/images/geekiga.png',
-                    )),
+                        image: new AssetImage(
+                      (ThemeData == temaGelap) ? logoTerang : logoGelap,
+                    ))
                   ],
                 ),
                 Row(
@@ -106,7 +94,7 @@ class Home extends StatelessWidget {
                           fontWeight: FontWeight.w500,
                           fontFamily: "Inter")),
                 ),
-                SizedBox(height: 210, child: HomeCarousel()),
+                SizedBox(height: 240, child: HomeCarousel()),
                 const Padding(
                   padding: EdgeInsets.fromLTRB(20, 0, 20, 0),
                   child: Text("Popular",
@@ -124,8 +112,8 @@ class Home extends StatelessWidget {
                       scrollDirection: Axis.horizontal,
                       itemBuilder: (context, index) =>
                           ChangeNotifierProvider.value(
-                              value: dataMain[index], child: FeaturedMovie()),
-                      itemCount: dataMain.length,
+                              value: movie_list[index], child: FeaturedMovie()),
+                      itemCount: 7,
                     ),
                   ),
                 ),
@@ -146,8 +134,9 @@ class Home extends StatelessWidget {
                       scrollDirection: Axis.horizontal,
                       itemBuilder: (context, index) =>
                           ChangeNotifierProvider.value(
-                              value: dataMain[index], child: FeaturedMovie()),
-                      itemCount: dataMain.length,
+                              value: movie_list[index + 3],
+                              child: FeaturedMovie()),
+                      itemCount: 7,
                     ),
                   ),
                 ),
@@ -168,8 +157,9 @@ class Home extends StatelessWidget {
                       scrollDirection: Axis.horizontal,
                       itemBuilder: (context, index) =>
                           ChangeNotifierProvider.value(
-                              value: dataMain[index], child: FeaturedMovie()),
-                      itemCount: dataMain.length,
+                              value: movie_list[index + 6],
+                              child: FeaturedMovie()),
+                      itemCount: 5,
                     ),
                   ),
                 ),
@@ -190,8 +180,8 @@ class Home extends StatelessWidget {
                       scrollDirection: Axis.horizontal,
                       itemBuilder: (context, index) =>
                           ChangeNotifierProvider.value(
-                              value: dataMain[index], child: FeaturedMovie()),
-                      itemCount: dataMain.length,
+                              value: movie_list[index], child: FeaturedMovie()),
+                      itemCount: movie_list.length,
                     ),
                   ),
                 ),

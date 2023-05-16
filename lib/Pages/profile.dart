@@ -26,7 +26,7 @@ class Profile extends StatelessWidget {
           children: <Widget>[
             Center(
               child: CircleAvatar(
-                foregroundImage: AssetImage('images/topik.jpg'),
+                foregroundImage: AssetImage('assets/images/topik.jpg'),
                 backgroundColor: Colors.white,
                 radius: 60,
               ),

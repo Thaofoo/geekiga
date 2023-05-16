@@ -3,6 +3,8 @@ import 'package:geekiga/pages/signup.dart';
 import 'package:geekiga/pages/forget.dart';
 import 'package:geekiga/newNavbar.dart';
 import '../packages/my_flutter_app_icons.dart';
+import 'package:provider/provider.dart';
+import '../providers/auth.dart';
 
 var _passwordVisible = false;
 const Color warnaEmas = Color.fromARGB(255, 184, 137, 33);
@@ -26,9 +28,23 @@ class _LoginPageState extends State<LoginPage> {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
   // final TextEditingController Controller = TextEditingController();
+  Duration get loginTime => Duration(milliseconds: 2000);
+
+  Future<String?> _authUserLogin(String email, String password) {
+    return Future.delayed(loginTime).then((_) async {
+      try {
+        await Provider.of<Auth>(context, listen: false).login(email, password);
+      } catch (err) {
+        print(err);
+        return err.toString();
+      }
+      return null;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
+    final auth = Provider.of<Auth>(context, listen: false);
     return Container(
       decoration: const BoxDecoration(
         gradient: LinearGradient(
@@ -64,7 +80,7 @@ class _LoginPageState extends State<LoginPage> {
                   child: Container(
                       width: 200,
                       height: 150,
-                      child: Image.asset('images/geekigaLogo.png')),
+                      child: Image.asset('assets/images/geekigaLogo.png')),
                 ),
               ),
               Padding(
@@ -160,8 +176,12 @@ class _LoginPageState extends State<LoginPage> {
                     borderRadius: BorderRadius.circular(45)),
                 child: TextButton(
                   onPressed: () {
-                    Navigator.pushReplacement(
-                        context, MaterialPageRoute(builder: (_) => Navbar2()));
+                    _authUserLogin(
+                            emailController.text, passwordController.text)
+                        .then((response) {
+                      Navigator.pushReplacement(context,
+                          MaterialPageRoute(builder: (_) => Navbar2()));
+                    });
                   },
                   child: Text(
                     'Login',

@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:geekiga/pages/login.dart';
 import 'package:geekiga/newNavbar.dart';
+import 'package:http/http.dart';
+import 'package:provider/provider.dart';
+import '../providers/userProvider.dart';
+import '../providers/auth.dart';
 
 var _passwordVisible = false;
 
@@ -20,8 +24,30 @@ class SignUpPage extends StatefulWidget {
 }
 
 class _SignUpPageState extends State<SignUpPage> {
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController fNameController = TextEditingController();
+  final TextEditingController lNameController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
+  Duration get loginTime => Duration(milliseconds: 2000);
+
+  Future<String?> _authUserSignUp(
+      String email, String firstName, String lastName, String password) {
+    return Future.delayed(loginTime).then((_) async {
+      try {
+        await Provider.of<Auth>(context, listen: false)
+            .signup(email, firstName, lastName, password);
+      } catch (err) {
+        print(err);
+        return err.toString();
+      }
+      return null;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
+    // final users = Provider.of<Users>(context, listen: false);
+    final auth = Provider.of<Auth>(context, listen: false);
     return Container(
       decoration: const BoxDecoration(
         gradient: LinearGradient(
@@ -43,26 +69,19 @@ class _SignUpPageState extends State<SignUpPage> {
       ),
       child: Scaffold(
         backgroundColor: Colors.transparent,
-        // appBar: AppBar(
-        //   title: Text("Login Page"),
-        // ),
+        appBar: AppBar(
+          title: Center(
+            child: Container(
+                width: 100,
+                height: 20,
+                child: Image.asset('assets/images/small-logo.png')),
+          ),
+        ),
         body: SingleChildScrollView(
           child: Column(
             children: <Widget>[
-              SizedBox(
-                height: 60,
-              ),
               Padding(
-                padding: const EdgeInsets.only(top: 30.0),
-                child: Center(
-                  child: Container(
-                      width: 100,
-                      height: 30,
-                      child: Image.asset('images/small-logo.png')),
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(40),
+                padding: const EdgeInsets.only(top: 20, bottom: 40),
                 child: Center(
                   child: Text(
                     "Create Your Account",
@@ -77,6 +96,28 @@ class _SignUpPageState extends State<SignUpPage> {
                 //padding: const EdgeInsets.only(left:15.0,right: 15.0,top:0,bottom: 0),
                 padding: EdgeInsets.symmetric(horizontal: 15),
                 child: TextFormField(
+                  controller: emailController,
+                  style: TextStyle(color: Colors.white),
+                  decoration: InputDecoration(
+                      fillColor: Color(0xff2C2C2C).withOpacity(0.51),
+                      filled: true,
+                      border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(45.0),
+                          borderSide: BorderSide.none),
+                      prefixIcon: Icon(Icons.mail_outline_rounded),
+                      prefixIconColor: Color(0xff707070),
+                      // labelText: 'Email',
+                      hintText: 'Email',
+                      hintStyle:
+                          TextStyle(color: Color.fromARGB(255, 112, 112, 112))),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(
+                    left: 15.0, right: 15.0, top: 15.0, bottom: 0),
+                // padding: EdgeInsets.symmetric(horizontal: 15),
+                child: TextFormField(
+                  controller: fNameController,
                   style: TextStyle(color: Colors.white),
                   decoration: InputDecoration(
                       fillColor: Color(0xff2C2C2C).withOpacity(0.51),
@@ -87,7 +128,28 @@ class _SignUpPageState extends State<SignUpPage> {
                       prefixIcon: Icon(Icons.person_outline_sharp),
                       prefixIconColor: Color(0xff707070),
                       // labelText: 'Email',
-                      hintText: 'Email',
+                      hintText: 'First Name',
+                      hintStyle:
+                          TextStyle(color: Color.fromARGB(255, 112, 112, 112))),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(
+                    left: 15.0, right: 15.0, top: 15.0, bottom: 0),
+                // padding: EdgeInsets.symmetric(horizontal: 15),
+                child: TextFormField(
+                  controller: lNameController,
+                  style: TextStyle(color: Colors.white),
+                  decoration: InputDecoration(
+                      fillColor: Color(0xff2C2C2C).withOpacity(0.51),
+                      filled: true,
+                      border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(45.0),
+                          borderSide: BorderSide.none),
+                      prefixIcon: Icon(Icons.person_outline_sharp),
+                      prefixIconColor: Color(0xff707070),
+                      // labelText: 'Email',
+                      hintText: 'Last Name',
                       hintStyle:
                           TextStyle(color: Color.fromARGB(255, 112, 112, 112))),
                 ),
@@ -98,6 +160,7 @@ class _SignUpPageState extends State<SignUpPage> {
                 //padding: EdgeInsets.symmetric(horizontal: 15),
                 child: TextFormField(
                   obscureText: !_passwordVisible,
+                  controller: passwordController,
                   style: TextStyle(color: Colors.white),
                   decoration: InputDecoration(
                       fillColor: Color(0xff2C2C2C).withOpacity(0.51),
@@ -177,8 +240,14 @@ class _SignUpPageState extends State<SignUpPage> {
                     borderRadius: BorderRadius.circular(45)),
                 child: TextButton(
                   onPressed: () {
-                    Navigator.pushReplacement(
-                        context, MaterialPageRoute(builder: (_) => Navbar2()));
+                    _authUserSignUp(emailController.text, fNameController.text,
+                            lNameController.text, passwordController.text)
+                        .then((response) {
+                      Navigator.pushReplacement(context,
+                          MaterialPageRoute(builder: (_) => Navbar2()));
+                    });
+                    // Navigator.pushReplacement(
+                    //     context, MaterialPageRoute(builder: (_) => Navbar2()));
                   },
                   child: Text(
                     'Continue',
@@ -187,7 +256,7 @@ class _SignUpPageState extends State<SignUpPage> {
                 ),
               ),
               SizedBox(
-                height: 130,
+                height: 60,
               ),
               Container(
                   width: 300,

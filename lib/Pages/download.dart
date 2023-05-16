@@ -35,7 +35,7 @@ class DownloadPage extends StatelessWidget {
       child: Row(
         children: [
           Container(
-            child: Image.asset('images/theflash.jpg'),
+            child: Image.asset('assets/images/theflash.jpg'),
             clipBehavior: Clip.hardEdge,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(8.0),

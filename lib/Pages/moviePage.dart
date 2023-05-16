@@ -1,17 +1,29 @@
 import 'package:flutter/material.dart';
+import 'package:geekiga/providers/favorite.dart';
+import 'package:geekiga/providers/favorite.dart';
+import 'package:provider/provider.dart';
 
 class MoviePage extends StatelessWidget {
+  String movie_id;
   String movie_title;
   String movie_year;
   String movie_img;
   String movie_desc;
 
-  MoviePage(this.movie_title, this.movie_year, this.movie_img, this.movie_desc,
+  MoviePage(this.movie_id, this.movie_title, this.movie_year, this.movie_img,
+      this.movie_desc,
       {super.key});
 
   @override
   Widget build(BuildContext context) {
+    final favorite = Provider.of<Favorite>(context, listen: false);
     return Scaffold(
+      // appBar: AppBar(
+      //   backgroundColor: Colors.transparent,
+      //   foregroundColor: Colors.transparent,
+      //   elevation: 0,
+      //   actions: <Widget>[],
+      // ),
       body: Stack(
         children: [
           Opacity(
@@ -40,6 +52,7 @@ class MoviePage extends StatelessWidget {
                           Icons.arrow_back,
                           // color: Colors.white,
                           size: 30,
+                          weight: 100,
                         ),
                       ),
                       // InkWell(
@@ -107,72 +120,96 @@ class MoviePage extends StatelessWidget {
                 ),
                 SizedBox(height: 15),
                 Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 40),
+                  padding: EdgeInsets.symmetric(horizontal: 90, vertical: 5),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Container(
-                        padding: EdgeInsets.all(10),
+                        height: 60,
+                        width: 60,
+                        padding: EdgeInsets.all(5),
                         decoration: BoxDecoration(
                             color: Color(0xFFF292B37),
-                            borderRadius: BorderRadius.circular(10)),
-                        child: Icon(
-                          Icons.add,
-                          color: Colors.white,
-                          size: 30,
-                        ),
+                            borderRadius: BorderRadius.circular(15)),
+                        child: IconButton(
+                            onPressed: () {
+                              (favorite.AddFav(
+                                          movie_id, movie_title, movie_img) ==
+                                      true)
+                                  ? ScaffoldMessenger.of(context).showSnackBar(
+                                      SnackBar(
+                                          content: Text(
+                                              "Berhasil Ditambahkan ke dalam Watchlist"),
+                                          duration:
+                                              Duration(milliseconds: 500)))
+                                  : ScaffoldMessenger.of(context)
+                                      .showSnackBar(SnackBar(
+                                      content: Text(
+                                          "Berhasil Dihapus dari Watchlist"),
+                                      duration: Duration(milliseconds: 500),
+                                    ));
+                            },
+                            icon: Icon(
+                              Icons.bookmark_add_rounded,
+                              color: Colors.white,
+                              size: 30,
+                            )),
                       ),
-                      Container(
-                        padding: EdgeInsets.all(10),
-                        decoration: BoxDecoration(
-                            color: Color(0xFFF292B37),
-                            borderRadius: BorderRadius.circular(10)),
-                        child: Icon(
-                          Icons.download,
-                          color: Colors.white,
-                          size: 30,
-                        ),
-                      ),
-                      Container(
-                        padding: EdgeInsets.all(10),
-                        decoration: BoxDecoration(
-                            color: Color(0xFFF292B37),
-                            borderRadius: BorderRadius.circular(10)),
-                        child: Icon(
-                          Icons.share,
-                          color: Colors.white,
-                          size: 30,
-                        ),
-                      ),
+                      // Container(
+                      //   height: 60,
+                      //   width: 60,
+                      //   padding: EdgeInsets.all(5),
+                      //   decoration: BoxDecoration(
+                      //       color: Color(0xFFF292B37),
+                      //       borderRadius: BorderRadius.circular(15)),
+                      //   child: IconButton(
+                      //       onPressed: () {
+                      //         favorite.RemoveFav(movie_id);
+                      //         ScaffoldMessenger.of(context)
+                      //             .showSnackBar(SnackBar(
+                      //           content:
+                      //               Text("Berhasil Dihapus dari Watchlist"),
+                      //           duration: Duration(milliseconds: 500),
+                      //         ));
+                      //       },
+                      //       icon: Icon(
+                      //         Icons.bookmark_remove_rounded,
+                      //         color: Colors.white,
+                      //         size: 30,
+                      //       )),
+                      // ),
                     ],
                   ),
                 ),
-                Padding(
-                  padding: EdgeInsets.symmetric(vertical: 15, horizontal: 10),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        movie_title,
-                        style: TextStyle(
-                          // color: Colors.white,
-                          fontWeight: FontWeight.w800,
-                          fontSize: 20,
+                Container(
+                  color: Theme.of(context).scaffoldBackgroundColor,
+                  child: Padding(
+                    padding: EdgeInsets.symmetric(vertical: 15, horizontal: 10),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          movie_title,
+                          style: TextStyle(
+                            // color: Colors.white,
+                            fontWeight: FontWeight.w800,
+                            fontSize: 20,
+                          ),
+                          textAlign: TextAlign.justify,
                         ),
-                        textAlign: TextAlign.justify,
-                      ),
-                      SizedBox(
-                        height: 15,
-                      ),
-                      Text(
-                        'Dalam suatu sejarah alternatif sekitar 1800 tahun yang lalu, seorang manusia bernama Ymir Fritz berubah menjadi raksasa mirip manusia yang dikenal sebagai Titan (巨人 Kyojin) setelah melakukan perjanjian dengan "Iblis dari Seluruh Bumi". Ymir kemudian mati 13 tahun kemudian sebagai "efek samping dari kekuatan tersebut".',
-                        style: TextStyle(
-                          // color: Colors.white,
-                          fontSize: 14,
+                        SizedBox(
+                          height: 15,
                         ),
-                        textAlign: TextAlign.justify,
-                      ),
-                    ],
+                        Text(
+                          movie_desc,
+                          style: TextStyle(
+                            // color: Colors.white,
+                            fontSize: 14,
+                          ),
+                          textAlign: TextAlign.justify,
+                        ),
+                      ],
+                    ),
                   ),
                 ),
                 SizedBox(height: 10),
