@@ -35,7 +35,7 @@ class WatchListPage extends StatelessWidget {
                     padding: const EdgeInsets.fromLTRB(8, 4, 8, 4),
                     child: Container(
                       child: Image.asset(
-                          "${movieData.Fav.values.toList()[counter].movie_img}"),
+                          "${movieData.Fav.values.toList()[counter].movieImg}"),
                       clipBehavior: Clip.hardEdge,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(8.0),
@@ -45,7 +45,7 @@ class WatchListPage extends StatelessWidget {
                   Container(
                     width: 200,
                     child: Text(
-                      "${movieData.Fav.values.toList()[counter].movie_title}",
+                      "${movieData.Fav.values.toList()[counter].movieTitle}",
                       style: TextStyle(fontSize: 16),
                     ),
                   )

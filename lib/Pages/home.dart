@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:geekiga/appTheme.dart';
+import 'package:geekiga/app_theme.dart';
+import 'package:geekiga/main.dart';
 import 'package:geekiga/pages/search.dart';
 import 'package:geekiga/pages/drawer.dart';
 import 'package:geekiga/widgets/featured.dart';
 import 'package:provider/provider.dart';
 import '../widgets/homeCarousel.dart';
-import '../providers/movieProvider.dart';
+import '../providers/movie_provider.dart';
 
 class Home extends StatelessWidget {
   Home({super.key});
@@ -16,7 +17,7 @@ class Home extends StatelessWidget {
     final list = Provider.of<Movies>(context);
     final movie_list = list.movies_list;
     String logoGelap = 'assets/images/geekiga.png';
-    String logoTerang = 'assets/images/GeekiigaDark.png';
+    String logoTerang = 'assets/images/geekigaDark.png';
 
     return Scaffold(
       // backgroundColor: Colors.black,
@@ -35,18 +36,9 @@ class Home extends StatelessWidget {
                 Row(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    // (ThemeData == temaTerang)
-                    //     ? Image(
-                    //         image: AssetImage(
-                    //         logoTerang,
-                    //       ))
-                    //     : Image(
-                    //         image: AssetImage(
-                    //         logoGelap,
-                    //       ))
                     Image(
                         image: new AssetImage(
-                      (ThemeData == temaGelap) ? logoTerang : logoGelap,
+                      (isSwitched.value == true) ? logoGelap : logoTerang,
                     ))
                   ],
                 ),
@@ -91,7 +83,7 @@ class Home extends StatelessWidget {
                       style: TextStyle(
                           // color: Colors.white,
                           fontSize: 20,
-                          fontWeight: FontWeight.w500,
+                          fontWeight: FontWeight.w800,
                           fontFamily: "Inter")),
                 ),
                 SizedBox(height: 240, child: HomeCarousel()),
@@ -101,7 +93,7 @@ class Home extends StatelessWidget {
                       style: TextStyle(
                           // color: Colors.white,
                           fontSize: 20,
-                          fontWeight: FontWeight.w500,
+                          fontWeight: FontWeight.w800,
                           fontFamily: "Inter")),
                 ),
                 Padding(
@@ -123,7 +115,7 @@ class Home extends StatelessWidget {
                       style: TextStyle(
                           // color: Colors.white,
                           fontSize: 20,
-                          fontWeight: FontWeight.w500,
+                          fontWeight: FontWeight.w800,
                           fontFamily: "Inter")),
                 ),
                 Padding(
@@ -146,7 +138,7 @@ class Home extends StatelessWidget {
                       style: TextStyle(
                           // color: Colors.white,
                           fontSize: 20,
-                          fontWeight: FontWeight.w500,
+                          fontWeight: FontWeight.w800,
                           fontFamily: "Inter")),
                 ),
                 Padding(
@@ -169,7 +161,7 @@ class Home extends StatelessWidget {
                       style: TextStyle(
                           // color: Colors.white,
                           fontSize: 20,
-                          fontWeight: FontWeight.w500,
+                          fontWeight: FontWeight.w800,
                           fontFamily: "Inter")),
                 ),
                 Padding(

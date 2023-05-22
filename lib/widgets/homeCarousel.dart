@@ -4,7 +4,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import '../models/movieList.dart';
 import '../pages/moviePage.dart';
 import 'package:provider/provider.dart';
-import '../providers/movieProvider.dart';
+import '../providers/movie_provider.dart';
 
 class HomeCarousel extends StatefulWidget {
   @override
@@ -35,7 +35,7 @@ class _HomeCarousel extends State<HomeCarousel> {
             aspectRatio: 2.0,
             viewportFraction: 0.85,
             onPageChanged: (index, carouselReason) {
-              print(index);
+              // print(index);
               setState(() {
                 _current = index;
               });
@@ -85,14 +85,14 @@ class _HomeCarousel extends State<HomeCarousel> {
                                     ),
                                     padding: EdgeInsets.symmetric(
                                         vertical: 10.0, horizontal: 20.0),
-                                    child: Text(
-                                      'Trending ${imgList.indexOf(item) + 1}',
-                                      style: TextStyle(
-                                        color: Colors.white,
-                                        fontSize: 20.0,
-                                        fontWeight: FontWeight.bold,
-                                      ),
-                                    ),
+                                    // child: Text(
+                                    //   'Trending ${imgList.indexOf(item) + 1}',
+                                    //   style: TextStyle(
+                                    //     color: Colors.white,
+                                    //     fontSize: 20.0,
+                                    //     fontWeight: FontWeight.bold,
+                                    //   ),
+                                    // ),
                                   ),
                                 ),
                               ],

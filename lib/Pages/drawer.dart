@@ -3,14 +3,18 @@ import 'package:geekiga/pages/landing.dart';
 import 'package:geekiga/pages/profile.dart';
 import 'package:geekiga/pages/settings.dart';
 import 'package:geekiga/pages/streamPlan.dart';
+import 'package:provider/provider.dart';
+
+import '../providers/authService.dart';
 
 const Color warnaEmas = Color.fromARGB(255, 184, 137, 33);
 
 class DrawerWidget extends StatelessWidget {
-  const DrawerWidget({super.key});
+  // const DrawerWidget({super.key});
 
   @override
-  Widget build(BuildContext buildContext) {
+  Widget build(BuildContext context) {
+    final authService = Provider.of<AuthService>(context);
     return Container(
       decoration: BoxDecoration(
         gradient: LinearGradient(
@@ -21,8 +25,8 @@ class DrawerWidget extends StatelessWidget {
             0.9,
           ],
           colors: [
-            Theme.of(buildContext).colorScheme.primary,
-            Theme.of(buildContext).colorScheme.secondary,
+            Theme.of(context).colorScheme.primary,
+            Theme.of(context).colorScheme.secondary,
           ],
         ),
       ),
@@ -36,7 +40,7 @@ class DrawerWidget extends StatelessWidget {
               icon: Icons.person,
               text: 'My Profile',
               onTap: () {
-                Navigator.of(buildContext, rootNavigator: true).push(
+                Navigator.of(context, rootNavigator: true).push(
                   MaterialPageRoute(builder: (context) => const Profile()),
                 );
               },
@@ -45,7 +49,7 @@ class DrawerWidget extends StatelessWidget {
               icon: Icons.list_alt,
               text: 'Stream Plan',
               onTap: () {
-                Navigator.of(buildContext, rootNavigator: true).push(
+                Navigator.of(context, rootNavigator: true).push(
                   MaterialPageRoute(
                       builder: (context) => StreamPlan(
                             title: 'Stream Plan',
@@ -55,7 +59,7 @@ class DrawerWidget extends StatelessWidget {
             ),
             _drawerItem(
                 icon: Icons.access_time,
-                text: 'Recent',
+                text: 'Transaction History',
                 onTap: () => print('Tap Recent menu')),
             Divider(
               height: 25,
@@ -77,7 +81,7 @@ class DrawerWidget extends StatelessWidget {
               icon: Icons.settings,
               text: 'Settings',
               onTap: () {
-                Navigator.of(buildContext, rootNavigator: true).push(
+                Navigator.of(context, rootNavigator: true).push(
                   MaterialPageRoute(builder: (context) => const Settings()),
                 );
               },
@@ -87,53 +91,53 @@ class DrawerWidget extends StatelessWidget {
               text: 'Log Out',
               onTap: () {
                 showDialog(
-                    context: buildContext,
-                    builder: (context) {
-                      return AlertDialog(
-                        shape: RoundedRectangleBorder(
-                            borderRadius:
-                                BorderRadius.all(Radius.circular(15.0))),
-                        backgroundColor: Color.fromARGB(255, 34, 34, 34),
-                        title: const Text(
-                          "Sign Out",
-                          style: TextStyle(color: Colors.white),
-                        ),
-                        content: const Text(
-                          "Are you sure you want to sign out?",
-                          style: TextStyle(color: Colors.white),
-                        ),
-                        actions: [
-                          TextButton(
-                            onPressed: () {
-                              Navigator.pop(context);
-                            },
-                            child: const Text(
-                              "Cancel",
-                              style: TextStyle(
-                                  color: warnaEmas,
-                                  fontWeight: FontWeight.bold),
-                            ),
+                  context: context,
+                  builder: (context) {
+                    return AlertDialog(
+                      shape: RoundedRectangleBorder(
+                          borderRadius:
+                              BorderRadius.all(Radius.circular(15.0))),
+                      backgroundColor: Color.fromARGB(255, 34, 34, 34),
+                      title: const Text(
+                        "Sign Out",
+                        style: TextStyle(color: Colors.white),
+                      ),
+                      content: const Text(
+                        "Are you sure you want to sign out?",
+                        style: TextStyle(color: Colors.white),
+                      ),
+                      actions: [
+                        TextButton(
+                          onPressed: () {
+                            Navigator.pop(context);
+                          },
+                          child: const Text(
+                            "Cancel",
+                            style: TextStyle(
+                                color: warnaEmas, fontWeight: FontWeight.bold),
                           ),
-                          TextButton(
-                            onPressed: () {
-                              Navigator.of(context)
-                                  .popUntil((route) => route.isFirst);
-                              Navigator.pushReplacement(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (BuildContext context) =>
-                                          LandingPage()));
-                            },
-                            child: const Text(
-                              "Confirm",
-                              style: TextStyle(
-                                  color: warnaEmas,
-                                  fontWeight: FontWeight.bold),
-                            ),
+                        ),
+                        TextButton(
+                          onPressed: () async {
+                            await authService.signOut();
+                            Navigator.of(context)
+                                .popUntil((route) => route.isFirst);
+                            Navigator.pushReplacement(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (BuildContext context) =>
+                                        LandingPage()));
+                          },
+                          child: const Text(
+                            "Confirm",
+                            style: TextStyle(
+                                color: warnaEmas, fontWeight: FontWeight.bold),
                           ),
-                        ],
-                      );
-                    });
+                        ),
+                      ],
+                    );
+                  },
+                );
               },
             ),
           ],

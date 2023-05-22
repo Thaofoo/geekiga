@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:geekiga/models/movieList.dart';
 import 'package:provider/provider.dart';
-import '../providers/movieProvider.dart';
+import '../providers/movie_provider.dart';
 
 class ChartPage extends StatelessWidget {
   const ChartPage({super.key});
@@ -14,8 +14,11 @@ class ChartPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          "Popular Rank",
-          style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
+          "Top 10 Chart",
+          style: TextStyle(
+              fontSize: 20,
+              fontWeight: FontWeight.w900,
+              fontStyle: FontStyle.italic),
         ),
         centerTitle: true,
         toolbarHeight: 75,
@@ -23,25 +26,6 @@ class ChartPage extends StatelessWidget {
       body: ListView.builder(
         itemCount: 10,
         itemBuilder: (BuildContext context, int index) {
-          // return ListTile(
-          //   // tileColor: ,
-          //   // leading: CircleAvatar(
-          //   //   foregroundImage: AssetImage("assets/images/geekiga.png"),
-          //   // ),
-          //   leading: ClipRRect(
-          //     borderRadius: BorderRadius.circular(15),
-          //     child: Image(
-          //       image: AssetImage("assets/images/KNN.webp"),
-          //       height: 180,
-          //       width: 100,
-          //       fit: BoxFit.cover,
-          //     ),
-          //   ),
-
-          //   title: Text('Judul Film'),
-          //   subtitle: Text("Genre Film"),
-          //   trailing: Text("Rating"),
-          // );
           return Container(
             margin: EdgeInsets.fromLTRB(
               15,
@@ -51,6 +35,16 @@ class ChartPage extends StatelessWidget {
             ),
             height: 115,
             child: Row(children: [
+              Container(
+                width: 20,
+                child: Text(
+                  "${index + 1}",
+                  style: TextStyle(
+                      fontSize: 16,
+                      // color: Theme.of(context).colorScheme.primary,
+                      fontWeight: FontWeight.w800),
+                ),
+              ),
               Padding(
                 padding: const EdgeInsets.fromLTRB(8, 4, 8, 4),
                 child: Container(
@@ -61,13 +55,60 @@ class ChartPage extends StatelessWidget {
                   ),
                 ),
               ),
-              Container(
-                width: 200,
-                child: Text(
-                  "Kimi No Nawa TES JUDUL PANJANG BANGET DEH YA HAHAHAHAA",
-                  style: TextStyle(fontSize: 16),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Column(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(top: 5, bottom: 5),
+                      child: Container(
+                        width: 180,
+                        child: Text(
+                          "Kimi No Nawa Tes Judul Panjang buat overflow",
+                          style: TextStyle(
+                              fontSize: 16, fontWeight: FontWeight.bold),
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(bottom: 5),
+                      child: Container(
+                        width: 180,
+                        child: Text(
+                          "Animated · Romance",
+                          style: TextStyle(
+                            fontSize: 14,
+                            fontStyle: FontStyle.italic,
+                            color: Color.fromARGB(255, 224, 144, 79),
+                          ),
+                        ),
+                      ),
+                    ),
+                    Container(
+                      width: 180,
+                      // padding: const EdgeInsets.only(bottom: 5),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Container(
+                            width: 20,
+                            child: Text(
+                              "5.0",
+                              style: TextStyle(fontSize: 12),
+                            ),
+                          ),
+                          Container(
+                              width: 10,
+                              child: Icon(
+                                Icons.star_rounded,
+                                size: 16,
+                              )),
+                        ],
+                      ),
+                    ),
+                  ],
                 ),
-              )
+              ),
             ]),
           );
         },

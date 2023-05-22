@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>1064384658921-ncus5pktq3fgca3pvmp80mo6e23dmaml.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.1064384658921-ncus5pktq3fgca3pvmp80mo6e23dmaml</string>
+	<key>API_KEY</key>
+	<string>AIzaSyC3IzgLVGJX7Z7HrIgV63lZJwTkB3BKTLM</string>
+	<key>GCM_SENDER_ID</key>
+	<string>1064384658921</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.example.geekiga</string>
+	<key>PROJECT_ID</key>
+	<string>geekiga-mobile</string>
+	<key>STORAGE_BUCKET</key>
+	<string>geekiga-mobile.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:1064384658921:ios:014995c84b86173b491f78</string>
+	<key>DATABASE_URL</key>
+	<string>https://geekiga-mobile-default-rtdb.asia-southeast1.firebasedatabase.app</string>
+</dict>
+</plist>

@@ -18,6 +18,15 @@ class Profile extends StatelessWidget {
         centerTitle: true,
         backgroundColor: Color.fromARGB(0, 48, 48, 48),
         elevation: 0,
+        actions: <Widget>[
+          IconButton(
+            icon: const Icon(Icons.edit),
+            tooltip: 'Edit Your Profile',
+            onPressed: () {
+              // handle the press
+            },
+          ),
+        ],
       ),
       body: Padding(
         padding: EdgeInsets.fromLTRB(30, 40, 30, 0),

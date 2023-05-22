@@ -1,30 +1,32 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:geekiga/pages/landing.dart';
-import 'package:geekiga/appTheme.dart';
+import 'package:geekiga/app_theme.dart';
+import 'package:geekiga/providers/authService.dart';
 import 'package:geekiga/providers/favorite.dart';
-import 'package:geekiga/providers/userProvider.dart';
+import 'package:geekiga/wrapper.dart';
 import 'package:provider/provider.dart';
 import 'package:geekiga/providers/auth.dart';
-import 'package:geekiga/providers/movieProvider.dart';
+import 'package:geekiga/providers/movie_provider.dart';
 
 ValueNotifier<bool> isSwitched = ValueNotifier<bool>(true);
 
-void main(List<String> args) {
-  SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.light);
-  runApp(MyApp());
+void main(List<String> args) async {
+  // SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.light);
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
-  Widget build(BuildContext buildContext) {
+  Widget build(BuildContext context) {
     return MultiProvider(
         providers: [
+          Provider<AuthService>(create: (_) => AuthService()),
           ChangeNotifierProvider(
             create: (ctx) => Auth(),
-          ),
-          ChangeNotifierProvider(
-            create: (ctx) => Users(),
           ),
           ChangeNotifierProvider(
             create: (ctx) => Movies(),
@@ -39,7 +41,7 @@ class MyApp extends StatelessWidget {
               debugShowCheckedModeBanner: false,
               title: 'Geekiga',
               theme: value ? temaGelap : temaTerang,
-              home: LandingPage()),
+              home: Wrapper()),
         ));
   }
 }

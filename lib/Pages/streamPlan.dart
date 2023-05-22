@@ -5,7 +5,7 @@ import 'package:geekiga/pages/search.dart';
 import 'package:geekiga/pages/drawer.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:geekiga/main.dart';
-import 'package:geekiga/appTheme.dart';
+import 'package:geekiga/app_theme.dart';
 
 class StreamPlan extends StatefulWidget {
   StreamPlan({required this.title});

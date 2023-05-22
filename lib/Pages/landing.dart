@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:geekiga/pages/login.dart';
+import 'package:geekiga/pages/signIn.dart';
 
 class LandingPage extends StatelessWidget {
   const LandingPage({super.key});
