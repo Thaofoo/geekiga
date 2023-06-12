@@ -10,7 +10,7 @@ class ChartPage extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(
+        title: const Text(
           "Top 10 Chart",
           style: TextStyle(
               fontSize: 20,
@@ -24,7 +24,7 @@ class ChartPage extends StatelessWidget {
         itemCount: 10,
         itemBuilder: (BuildContext context, int index) {
           return Container(
-            margin: EdgeInsets.fromLTRB(
+            margin: const EdgeInsets.fromLTRB(
               15,
               5,
               30,
@@ -36,7 +36,7 @@ class ChartPage extends StatelessWidget {
                 width: 20,
                 child: Text(
                   "${index + 1}",
-                  style: TextStyle(
+                  style: const TextStyle(
                       fontSize: 16,
                       // color: Theme.of(context).colorScheme.primary,
                       fontWeight: FontWeight.w800),
@@ -60,7 +60,7 @@ class ChartPage extends StatelessWidget {
                       padding: const EdgeInsets.only(top: 5, bottom: 5),
                       child: Container(
                         width: 180,
-                        child: Text(
+                        child: const Text(
                           "Kimi No Nawa",
                           style: TextStyle(
                               fontSize: 16, fontWeight: FontWeight.bold),
@@ -71,7 +71,7 @@ class ChartPage extends StatelessWidget {
                       padding: const EdgeInsets.only(bottom: 5),
                       child: Container(
                         width: 180,
-                        child: Text(
+                        child: const Text(
                           "Animated · Romance",
                           style: TextStyle(
                             fontSize: 14,
@@ -89,14 +89,14 @@ class ChartPage extends StatelessWidget {
                         children: [
                           Container(
                             width: 20,
-                            child: Text(
+                            child: const Text(
                               "5.0",
                               style: TextStyle(fontSize: 12),
                             ),
                           ),
                           Container(
                               width: 10,
-                              child: Icon(
+                              child: const Icon(
                                 Icons.star_rounded,
                                 size: 16,
                               )),
