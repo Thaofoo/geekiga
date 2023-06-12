@@ -1,10 +1,15 @@
 import 'dart:convert';
+import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:firebase_auth/firebase_auth.dart' as auth;
 import '../models/user.dart';
 
-class AuthService {
+class AuthService with ChangeNotifier {
   final auth.FirebaseAuth _firebaseAuth = auth.FirebaseAuth.instance;
+  String? _idToken, userId, displayName;
+  // String? id;
+  String? image, email;
+  // DateTime? _expiryDate;
 
   User? _userFromFirebase(auth.User? user) {
     if (user == null) {
@@ -15,6 +20,10 @@ class AuthService {
       user.email,
     );
   }
+
+  // Future<String> getCurrentUID() async {
+  //   return (await _firebaseAuth.currentUser!().uid);
+  // }
 
   Stream<User?>? get user {
     return _firebaseAuth.authStateChanges().map(_userFromFirebase);
@@ -28,13 +37,19 @@ class AuthService {
       email: email,
       password: password,
     );
+    getUserDetail();
+  }
+
+  Future<void> getUserDetail() async {
+    userId = _firebaseAuth.currentUser!.uid;
+    displayName = _firebaseAuth.currentUser!.photoURL;
+    email = _firebaseAuth.currentUser!.email;
+    notifyListeners();
   }
 
   Future<User?> createUserWithEmailAndPassword(
     String email,
     String password,
-    String fName,
-    String lName,
   ) async {
     final credential = await _firebaseAuth.createUserWithEmailAndPassword(
       email: email,

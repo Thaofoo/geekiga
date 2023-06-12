@@ -1,14 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:geekiga/Pages/chart.dart';
-import 'package:google_nav_bar/google_nav_bar.dart';
 import 'packages/my_flutter_app_icons.dart';
-import 'pages/profile.dart';
 import 'pages/watchlist.dart';
 import 'pages/home.dart';
-import 'pages/download.dart';
 
 const Color warnaEmas = Color.fromARGB(255, 184, 137, 33);
 
+// ignore: must_be_immutable
 class Navbar extends StatefulWidget {
   int _currentIndex = 0;
   List pages = [
@@ -30,7 +28,7 @@ class _NavbarState extends State<Navbar> {
         extendBody: true,
         body: widget.pages[widget._currentIndex],
         bottomNavigationBar: Container(
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             boxShadow: [
               BoxShadow(
                 offset: Offset(0, 5),
@@ -45,13 +43,13 @@ class _NavbarState extends State<Navbar> {
             ),
           ),
           child: ClipRRect(
-            borderRadius: BorderRadius.only(
+            borderRadius: const BorderRadius.only(
               topLeft: Radius.circular(30),
               topRight: Radius.circular(30),
             ),
             child: Container(
               height: 70,
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 gradient: LinearGradient(
                   begin: Alignment.topCenter,
                   end: Alignment.bottomCenter,
@@ -83,11 +81,11 @@ class _NavbarState extends State<Navbar> {
                   currentIndex: widget._currentIndex,
                   type: BottomNavigationBarType.fixed,
                   backgroundColor: Colors.transparent,
-                  unselectedItemColor: Color.fromARGB(135, 255, 255, 255),
-                  selectedItemColor: Color(0xff936e1a),
-                  selectedLabelStyle: TextStyle(color: Color(0xff936e1a)),
-                  unselectedLabelStyle:
-                      TextStyle(color: Color.fromARGB(135, 255, 255, 255)),
+                  unselectedItemColor: const Color.fromARGB(135, 255, 255, 255),
+                  selectedItemColor: const Color(0xff936e1a),
+                  selectedLabelStyle: const TextStyle(color: Color(0xff936e1a)),
+                  unselectedLabelStyle: const TextStyle(
+                      color: Color.fromARGB(135, 255, 255, 255)),
                   showUnselectedLabels: true,
                   iconSize: 20,
                   selectedFontSize: 10,
@@ -95,8 +93,8 @@ class _NavbarState extends State<Navbar> {
                   items: <BottomNavigationBarItem>[
                     BottomNavigationBarItem(
                       icon: Container(
-                        margin: EdgeInsets.only(bottom: 5, top: 3),
-                        child: Icon(
+                        margin: const EdgeInsets.only(bottom: 5, top: 3),
+                        child: const Icon(
                           MyFlutterApp.home,
                         ),
                       ),
@@ -104,8 +102,8 @@ class _NavbarState extends State<Navbar> {
                     ),
                     BottomNavigationBarItem(
                       icon: Container(
-                        margin: EdgeInsets.only(bottom: 5, top: 3),
-                        child: Icon(
+                        margin: const EdgeInsets.only(bottom: 5, top: 3),
+                        child: const Icon(
                           MyFlutterApp.chart,
                         ),
                       ),
@@ -113,8 +111,8 @@ class _NavbarState extends State<Navbar> {
                     ),
                     BottomNavigationBarItem(
                       icon: Container(
-                        margin: EdgeInsets.only(bottom: 5, top: 3),
-                        child: Icon(
+                        margin: const EdgeInsets.only(bottom: 5, top: 3),
+                        child: const Icon(
                           MyFlutterApp.watchlist,
                         ),
                       ),

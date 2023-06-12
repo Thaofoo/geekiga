@@ -6,7 +6,14 @@ class MovieList with ChangeNotifier {
   String movie_year;
   String movie_img;
   String movie_desc;
+  String movie_url;
 
-  MovieList(this.id, this.movie_title, this.movie_year, this.movie_img,
-      this.movie_desc);
+  MovieList({
+    required this.id,
+    required this.movie_title,
+    required this.movie_year,
+    required this.movie_img,
+    required this.movie_desc,
+    required this.movie_url,
+  });
 }

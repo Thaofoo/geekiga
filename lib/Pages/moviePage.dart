@@ -1,5 +1,8 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
-import 'package:geekiga/providers/favorite.dart';
+import 'package:geekiga/pages/videoPlayer.dart';
+import 'package:geekiga/providers/authService.dart';
 import 'package:geekiga/providers/favorite.dart';
 import 'package:provider/provider.dart';
 
@@ -9,13 +12,17 @@ class MoviePage extends StatelessWidget {
   String movie_year;
   String movie_img;
   String movie_desc;
+  String movie_url;
 
   MoviePage(this.movie_id, this.movie_title, this.movie_year, this.movie_img,
-      this.movie_desc,
+      this.movie_desc, this.movie_url,
       {super.key});
 
   @override
   Widget build(BuildContext context) {
+    // CollectionReference watchlist = FirebaseFirestore.instance.collection('watchlist');
+    final firebase = FirebaseDatabase.instance;
+    DatabaseReference ref = FirebaseDatabase.instance.ref();
     final favorite = Provider.of<Favorite>(context, listen: false);
     return Scaffold(
       // appBar: AppBar(
@@ -95,90 +102,101 @@ class MoviePage extends StatelessWidget {
                           ),
                         ),
                       ),
-                      Container(
-                        margin: EdgeInsets.only(right: 40, top: 40),
-                        height: 80,
-                        width: 80,
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(40),
-                            color: Color.fromARGB(255, 184, 137, 33),
-                            boxShadow: [
-                              BoxShadow(
-                                color: Color.fromARGB(255, 184, 137, 33),
-                                spreadRadius: 2,
-                                blurRadius: 8,
-                              )
-                            ]),
-                        child: Icon(
-                          Icons.play_arrow,
-                          color: Colors.white,
-                          size: 60,
+                      InkWell(
+                        onTap: () {
+                          Navigator.of(context, rootNavigator: true).push(
+                            MaterialPageRoute(
+                                builder: (context) =>
+                                    VideoPlayerPage(movie_url)),
+                          );
+                        },
+                        child: Container(
+                          margin: EdgeInsets.only(right: 40, top: 40),
+                          height: 80,
+                          width: 80,
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(40),
+                              color: Color.fromARGB(255, 184, 137, 33),
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Color.fromARGB(255, 184, 137, 33),
+                                  spreadRadius: 2,
+                                  blurRadius: 8,
+                                )
+                              ]),
+                          child: Icon(
+                            Icons.play_arrow,
+                            color: Colors.white,
+                            size: 60,
+                          ),
                         ),
-                      )
+                      ),
                     ],
                   ),
                 ),
                 SizedBox(height: 15),
-                Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 90, vertical: 5),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Container(
-                        height: 60,
-                        width: 60,
-                        padding: EdgeInsets.all(5),
-                        decoration: BoxDecoration(
-                            color: Color(0xFFF292B37),
-                            borderRadius: BorderRadius.circular(15)),
-                        child: IconButton(
-                            onPressed: () {
-                              (favorite.AddFav(
-                                          movie_id, movie_title, movie_img) ==
-                                      true)
-                                  ? ScaffoldMessenger.of(context).showSnackBar(
-                                      SnackBar(
-                                          content: Text(
-                                              "Berhasil Ditambahkan ke dalam Watchlist"),
-                                          duration:
-                                              Duration(milliseconds: 500)))
-                                  : ScaffoldMessenger.of(context)
-                                      .showSnackBar(SnackBar(
-                                      content: Text(
-                                          "Berhasil Dihapus dari Watchlist"),
-                                      duration: Duration(milliseconds: 500),
-                                    ));
-                            },
-                            icon: Icon(
-                              Icons.bookmark_add_rounded,
-                              color: Colors.white,
-                              size: 30,
-                            )),
-                      ),
-                      // Container(
-                      //   height: 60,
-                      //   width: 60,
-                      //   padding: EdgeInsets.all(5),
-                      //   decoration: BoxDecoration(
-                      //       color: Color(0xFFF292B37),
-                      //       borderRadius: BorderRadius.circular(15)),
-                      //   child: IconButton(
-                      //       onPressed: () {
-                      //         favorite.RemoveFav(movie_id);
-                      //         ScaffoldMessenger.of(context)
-                      //             .showSnackBar(SnackBar(
-                      //           content:
-                      //               Text("Berhasil Dihapus dari Watchlist"),
-                      //           duration: Duration(milliseconds: 500),
-                      //         ));
-                      //       },
-                      //       icon: Icon(
-                      //         Icons.bookmark_remove_rounded,
-                      //         color: Colors.white,
-                      //         size: 30,
-                      //       )),
-                      // ),
-                    ],
+                Center(
+                  child: Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 90, vertical: 5),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Container(
+                          height: 60,
+                          width: 60,
+                          padding: EdgeInsets.all(5),
+                          decoration: BoxDecoration(
+                              color: Color(0xFFF292B37),
+                              borderRadius: BorderRadius.circular(15)),
+                          child: IconButton(
+                              onPressed: () {
+                                (favorite.addFav(
+                                    movie_id,
+                                    Provider.of<AuthService>(context,
+                                                listen: false)
+                                            .userId ??
+                                        "No Name",
+                                    movie_title,
+                                    movie_img,
+                                    movie_year,
+                                    movie_desc,
+                                    movie_url));
+                                ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                                    content: Text(
+                                        "Berhasil Ditambahkan ke dalam Watchlist"),
+                                    duration: Duration(milliseconds: 500)));
+                              },
+                              icon: Icon(
+                                Icons.bookmark_add_rounded,
+                                color: Colors.white,
+                                size: 30,
+                              )),
+                        ),
+                        // Container(
+                        //   height: 60,
+                        //   width: 60,
+                        //   padding: EdgeInsets.all(5),
+                        //   decoration: BoxDecoration(
+                        //       color: Color(0xFFF292B37),
+                        //       borderRadius: BorderRadius.circular(15)),
+                        //   child: IconButton(
+                        //       onPressed: () {
+                        //         favorite.RemoveFav(movie_id);
+                        //         ScaffoldMessenger.of(context)
+                        //             .showSnackBar(SnackBar(
+                        //           content:
+                        //               Text("Berhasil Dihapus dari Watchlist"),
+                        //           duration: Duration(milliseconds: 500),
+                        //         ));
+                        //       },
+                        //       icon: Icon(
+                        //         Icons.bookmark_remove_rounded,
+                        //         color: Colors.white,
+                        //         size: 30,
+                        //       )),
+                        // ),
+                      ],
+                    ),
                   ),
                 ),
                 Container(

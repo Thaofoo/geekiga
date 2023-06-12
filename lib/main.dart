@@ -5,7 +5,6 @@ import 'package:geekiga/providers/authService.dart';
 import 'package:geekiga/providers/favorite.dart';
 import 'package:geekiga/wrapper.dart';
 import 'package:provider/provider.dart';
-import 'package:geekiga/providers/auth.dart';
 import 'package:geekiga/providers/movie_provider.dart';
 
 ValueNotifier<bool> isSwitched = ValueNotifier<bool>(true);
@@ -14,6 +13,8 @@ void main(List<String> args) async {
   // SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.light);
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
+  // getUserDetail();
+
   runApp(const MyApp());
 }
 
@@ -24,16 +25,16 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
         providers: [
-          Provider<AuthService>(create: (_) => AuthService()),
-          ChangeNotifierProvider(
-            create: (ctx) => Auth(),
-          ),
+          ChangeNotifierProvider<AuthService>(create: (_) => AuthService()),
           ChangeNotifierProvider(
             create: (ctx) => Movies(),
           ),
           ChangeNotifierProvider(
             create: (ctx) => Favorite(),
           ),
+          // ChangeNotifierProvider(
+          //   create: (ctx) => MovieList(),
+          // ),
         ],
         child: ValueListenableBuilder<bool>(
           valueListenable: isSwitched,

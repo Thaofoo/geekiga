@@ -64,7 +64,7 @@ class ChartPage extends StatelessWidget {
                       child: Container(
                         width: 180,
                         child: Text(
-                          "Kimi No Nawa Tes Judul Panjang buat overflow",
+                          "Kimi No Nawa",
                           style: TextStyle(
                               fontSize: 16, fontWeight: FontWeight.bold),
                         ),

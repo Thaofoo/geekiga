@@ -9,18 +9,18 @@ class About extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        iconTheme: IconThemeData(
+        iconTheme: const IconThemeData(
           color: Colors.grey, //change your color here
         ),
-        title: Text(
+        title: const Text(
           'About Us',
         ),
         centerTitle: true,
-        backgroundColor: Color.fromARGB(0, 48, 48, 48),
+        backgroundColor: const Color.fromARGB(0, 48, 48, 48),
         elevation: 0,
       ),
       body: Padding(
-        padding: EdgeInsets.fromLTRB(30, 10, 30, 0),
+        padding: const EdgeInsets.fromLTRB(30, 10, 30, 0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
@@ -28,23 +28,23 @@ class About extends StatelessWidget {
               height: 20,
               color: Colors.grey[800],
             ),
-            Center(
+            const Center(
               child: Text(
                 'Aplikasi ini dibuat oleh',
                 style: TextStyle(color: warnaEmas, letterSpacing: 2),
                 textAlign: TextAlign.center,
               ),
             ),
-            SizedBox(height: 20),
-            Center(
+            const SizedBox(height: 20),
+            const Center(
               child: CircleAvatar(
                 foregroundImage: AssetImage('assets/images/topik.jpg'),
                 backgroundColor: Colors.white,
                 radius: 60,
               ),
             ),
-            SizedBox(height: 10),
-            Center(
+            const SizedBox(height: 10),
+            const Center(
               child: Text(
                 'Mochamad Taufiqul Hafizh | 002',
                 maxLines: 1,
@@ -59,15 +59,15 @@ class About extends StatelessWidget {
               height: 60,
               color: Colors.grey[800],
             ),
-            Center(
+            const Center(
               child: CircleAvatar(
                 foregroundImage: AssetImage('assets/images/edo.jpg'),
                 backgroundColor: Colors.white,
                 radius: 60,
               ),
             ),
-            SizedBox(height: 10),
-            Center(
+            const SizedBox(height: 10),
+            const Center(
               child: Text(
                 'Nathanael Erlando Putra | 025',
                 maxLines: 1,

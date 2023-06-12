@@ -34,34 +34,34 @@ class Settings extends StatelessWidget {
                 color: warnaEmas,
               ),
               trailing: SwitchExample()),
-          ListTile(
-            title: Text(
-              "About Us",
-            ),
-            leading: Icon(
-              Icons.privacy_tip_outlined,
-              color: warnaEmas,
-            ),
-            trailing: new Column(
-              children: <Widget>[
-                new Container(
-                  child: new IconButton(
-                    icon: new Icon(
-                      Icons.arrow_forward_ios,
-                      color: warnaEmas,
-                    ),
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => const About()),
-                      );
-                    },
-                  ),
-                  margin: EdgeInsets.only(top: 5.0),
-                ),
-              ],
-            ),
-          ),
+          // ListTile(
+          //   title: Text(
+          //     "About Us",
+          //   ),
+          //   leading: Icon(
+          //     Icons.privacy_tip_outlined,
+          //     color: warnaEmas,
+          //   ),
+          //   trailing: new Column(
+          //     children: <Widget>[
+          //       new Container(
+          //         child: new IconButton(
+          //           icon: new Icon(
+          //             Icons.arrow_forward_ios,
+          //             color: warnaEmas,
+          //           ),
+          //           onPressed: () {
+          //             Navigator.push(
+          //               context,
+          //               MaterialPageRoute(builder: (context) => const About()),
+          //             );
+          //           },
+          //         ),
+          //         margin: EdgeInsets.only(top: 5.0),
+          //       ),
+          //     ],
+          //   ),
+          // ),
         ],
       ),
     );

@@ -1,8 +1,9 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:geekiga/pages/about.dart';
 import 'package:geekiga/pages/landing.dart';
 import 'package:geekiga/pages/profile.dart';
 import 'package:geekiga/pages/settings.dart';
-import 'package:geekiga/pages/streamPlan.dart';
 import 'package:provider/provider.dart';
 
 import '../providers/authService.dart';
@@ -45,22 +46,27 @@ class DrawerWidget extends StatelessWidget {
                 );
               },
             ),
+            // _drawerItem(
+            //   icon: Icons.list_alt,
+            //   text: 'Stream Plan',
+            //   onTap: () {
+            //     Navigator.of(context, rootNavigator: true).push(
+            //       MaterialPageRoute(
+            //           builder: (context) => StreamPlan(
+            //                 title: 'Stream Plan',
+            //               )),
+            //     );
+            //   },
+            // ),
             _drawerItem(
-              icon: Icons.list_alt,
-              text: 'Stream Plan',
-              onTap: () {
-                Navigator.of(context, rootNavigator: true).push(
-                  MaterialPageRoute(
-                      builder: (context) => StreamPlan(
-                            title: 'Stream Plan',
-                          )),
-                );
-              },
-            ),
-            _drawerItem(
-                icon: Icons.access_time,
-                text: 'Transaction History',
-                onTap: () => print('Tap Recent menu')),
+                icon: Icons.privacy_tip_outlined,
+                text: 'About Us',
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const About()),
+                  );
+                }),
             Divider(
               height: 25,
               thickness: 0.75,
@@ -155,17 +161,19 @@ Widget _drawerHeader() {
             bottom: BorderSide(
                 color: Color.fromARGB(150, 79, 79, 79), width: 0.75))),
     currentAccountPicture: ClipOval(
-      child:
-          Image(image: AssetImage('assets/images/edo.jpg'), fit: BoxFit.cover),
+      child: Image(
+          image: NetworkImage(FirebaseAuth.instance.currentUser!.photoURL ??
+              'https://th.bing.com/th/id/OIP.DGePcjJ-RdJr7oivIaPxGgHaHa?w=217&h=217&c=7&r=0&o=5&dpr=1.3&pid=1.7'),
+          fit: BoxFit.cover),
     ),
     accountName: Text(
-      'Nathanael Erlando Putra',
+      FirebaseAuth.instance.currentUser!.displayName ?? 'No Name',
       style: TextStyle(
         fontWeight: FontWeight.w500,
       ),
     ),
     accountEmail: Text(
-      'erlando.putra.21@gmail.com',
+      FirebaseAuth.instance.currentUser!.email!,
       style: TextStyle(
           fontWeight: FontWeight.w300,
           color: Color.fromARGB(255, 139, 139, 139)),

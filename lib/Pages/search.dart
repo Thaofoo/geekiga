@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:geekiga/models/movieList.dart';
 import 'package:geekiga/models/movieSearch.dart';
+import 'package:provider/provider.dart';
 
 class Search extends StatelessWidget {
   const Search({super.key});
@@ -25,6 +27,8 @@ class _SearchPageState extends State<SearchPage> {
   // void clearText() {
   //   fieldText.clear();
   // }
+
+  // final List<MovieList> movie_list = [];
 
   static List<MovieSearch> movie_list = [
     MovieSearch("Shingeki No Kyojin", "2013", "assets/images/AOT.webp"),

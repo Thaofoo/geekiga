@@ -15,8 +15,13 @@ class FeaturedMovie extends StatelessWidget {
         Navigator.push(
             context,
             MaterialPageRoute(
-                builder: (context) => MoviePage(data.id, data.movie_title,
-                    data.movie_year, data.movie_img, data.movie_desc)));
+                builder: (context) => MoviePage(
+                    data.id,
+                    data.movie_title,
+                    data.movie_year,
+                    data.movie_img,
+                    data.movie_desc,
+                    data.movie_url)));
       },
       child: Padding(
         padding: const EdgeInsets.only(right: 15),

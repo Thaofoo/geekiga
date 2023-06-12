@@ -1,8 +1,9 @@
 String passwd = '';
 
 String? validateEmail(formEmail) {
-  if (formEmail == null || formEmail.isEmpty)
+  if (formEmail == null || formEmail.isEmpty) {
     return 'E-mail address is required';
+  }
 
   return null;
 }
