@@ -1,10 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import 'package:carousel_slider/carousel_slider.dart';
-import '../models/movieList.dart';
-import '../pages/moviePage.dart';
-import 'package:provider/provider.dart';
-import '../providers/movie_provider.dart';
 
 class HomeCarousel extends StatefulWidget {
   @override
@@ -31,7 +26,7 @@ class _HomeCarousel extends State<HomeCarousel> {
         CarouselSlider(
           options: CarouselOptions(
             autoPlay: true,
-            autoPlayInterval: Duration(seconds: 4),
+            autoPlayInterval: const Duration(seconds: 4),
             aspectRatio: 2.0,
             viewportFraction: 0.85,
             onPageChanged: (index, carouselReason) {
@@ -56,10 +51,10 @@ class _HomeCarousel extends State<HomeCarousel> {
                       //               data.movie_desc)));
                       // },
                       child: Container(
-                        margin: EdgeInsets.all(1.0),
+                        margin: const EdgeInsets.all(1.0),
                         child: ClipRRect(
                             borderRadius:
-                                BorderRadius.all(Radius.circular(10.0)),
+                                const BorderRadius.all(Radius.circular(10.0)),
                             child: Stack(
                               children: <Widget>[
                                 Image.asset(
@@ -73,7 +68,7 @@ class _HomeCarousel extends State<HomeCarousel> {
                                   left: 0.0,
                                   right: 0.0,
                                   child: Container(
-                                    decoration: BoxDecoration(
+                                    decoration: const BoxDecoration(
                                       gradient: LinearGradient(
                                         colors: [
                                           Color.fromARGB(200, 0, 0, 0),
@@ -83,7 +78,7 @@ class _HomeCarousel extends State<HomeCarousel> {
                                         end: Alignment.topCenter,
                                       ),
                                     ),
-                                    padding: EdgeInsets.symmetric(
+                                    padding: const EdgeInsets.symmetric(
                                         vertical: 10.0, horizontal: 20.0),
                                     // child: Text(
                                     //   'Trending ${imgList.indexOf(item) + 1}',
@@ -110,12 +105,13 @@ class _HomeCarousel extends State<HomeCarousel> {
               child: Container(
                 width: 8.0,
                 height: 8.0,
-                margin: EdgeInsets.symmetric(vertical: 8.0, horizontal: 4.0),
+                margin:
+                    const EdgeInsets.symmetric(vertical: 8.0, horizontal: 4.0),
                 decoration: BoxDecoration(
                     shape: BoxShape.circle,
                     color: (Theme.of(context).brightness == Brightness.dark
-                            ? Color.fromARGB(255, 184, 137, 33)
-                            : Color.fromARGB(255, 184, 137, 33))
+                            ? const Color.fromARGB(255, 184, 137, 33)
+                            : const Color.fromARGB(255, 184, 137, 33))
                         .withOpacity(_current == entry.key ? 0.9 : 0.4)),
               ),
             );

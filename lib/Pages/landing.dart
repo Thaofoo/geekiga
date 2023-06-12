@@ -26,7 +26,7 @@ class LandingPage extends StatelessWidget {
       child: Scaffold(
         backgroundColor: Colors.transparent,
         appBar: PreferredSize(
-          preferredSize: Size.fromHeight(0),
+          preferredSize: const Size.fromHeight(0),
           child: AppBar(
             backgroundColor: Colors.black,
           ),
@@ -43,7 +43,7 @@ class LandingPage extends StatelessWidget {
                       child: Image.asset('assets/images/Splash.png')),
                 ),
               ),
-              Padding(
+              const Padding(
                 padding: EdgeInsets.fromLTRB(23, 20, 23, 50),
                 child: Text(
                   "Start watching your favorite movies and shows with Geekiga now! Experience a simple and fast service, tailored just for you!",
@@ -55,22 +55,22 @@ class LandingPage extends StatelessWidget {
                   ),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 100,
               ),
               Container(
                 height: 50,
                 width: 300,
-                margin: EdgeInsets.only(top: 15),
+                margin: const EdgeInsets.only(top: 15),
                 decoration: BoxDecoration(
-                    color: Color.fromARGB(255, 81, 58, 9),
+                    color: const Color.fromARGB(255, 81, 58, 9),
                     borderRadius: BorderRadius.circular(45)),
                 child: TextButton(
                   onPressed: () {
-                    Navigator.pushReplacement(
-                        context, MaterialPageRoute(builder: (_) => Login()));
+                    Navigator.pushReplacement(context,
+                        MaterialPageRoute(builder: (_) => const Login()));
                   },
-                  child: Text(
+                  child: const Text(
                     'Start Watching',
                     style: TextStyle(
                         color: Colors.white,
@@ -79,7 +79,7 @@ class LandingPage extends StatelessWidget {
                   ),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 80,
               ),
             ],

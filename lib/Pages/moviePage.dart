@@ -47,7 +47,8 @@ class MoviePage extends StatelessWidget {
                 child: Column(
               children: [
                 Padding(
-                  padding: EdgeInsets.symmetric(vertical: 10, horizontal: 25),
+                  padding:
+                      const EdgeInsets.symmetric(vertical: 10, horizontal: 25),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -55,7 +56,7 @@ class MoviePage extends StatelessWidget {
                         onTap: () {
                           Navigator.pop(context);
                         },
-                        child: Icon(
+                        child: const Icon(
                           Icons.arrow_back,
                           // color: Colors.white,
                           size: 30,
@@ -73,21 +74,21 @@ class MoviePage extends StatelessWidget {
                     ],
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 60,
                 ),
                 Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 10),
+                  padding: const EdgeInsets.symmetric(horizontal: 10),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Container(
-                        margin: EdgeInsets.only(left: 10),
+                        margin: const EdgeInsets.only(left: 10),
                         decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(20),
                             boxShadow: [
                               BoxShadow(
-                                  color: Color.fromARGB(170, 0, 0, 0)
+                                  color: const Color.fromARGB(170, 0, 0, 0)
                                       .withOpacity(0.5),
                                   spreadRadius: 1,
                                   blurRadius: 8),
@@ -111,20 +112,20 @@ class MoviePage extends StatelessWidget {
                           );
                         },
                         child: Container(
-                          margin: EdgeInsets.only(right: 40, top: 40),
+                          margin: const EdgeInsets.only(right: 40, top: 40),
                           height: 80,
                           width: 80,
                           decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(40),
-                              color: Color.fromARGB(255, 184, 137, 33),
+                              color: const Color.fromARGB(255, 184, 137, 33),
                               boxShadow: [
-                                BoxShadow(
+                                const BoxShadow(
                                   color: Color.fromARGB(255, 184, 137, 33),
                                   spreadRadius: 2,
                                   blurRadius: 8,
                                 )
                               ]),
-                          child: Icon(
+                          child: const Icon(
                             Icons.play_arrow,
                             color: Colors.white,
                             size: 60,
@@ -134,19 +135,20 @@ class MoviePage extends StatelessWidget {
                     ],
                   ),
                 ),
-                SizedBox(height: 15),
+                const SizedBox(height: 15),
                 Center(
                   child: Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 90, vertical: 5),
+                    padding:
+                        const EdgeInsets.symmetric(horizontal: 90, vertical: 5),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Container(
                           height: 60,
                           width: 60,
-                          padding: EdgeInsets.all(5),
+                          padding: const EdgeInsets.all(5),
                           decoration: BoxDecoration(
-                              color: Color(0xFFF292B37),
+                              color: const Color(0xFFF292B37),
                               borderRadius: BorderRadius.circular(15)),
                           child: IconButton(
                               onPressed: () {
@@ -161,12 +163,13 @@ class MoviePage extends StatelessWidget {
                                     movie_year,
                                     movie_desc,
                                     movie_url));
-                                ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                                    content: Text(
-                                        "Berhasil Ditambahkan ke dalam Watchlist"),
-                                    duration: Duration(milliseconds: 500)));
+                                ScaffoldMessenger.of(context).showSnackBar(
+                                    const SnackBar(
+                                        content: Text(
+                                            "Berhasil Ditambahkan ke dalam Watchlist"),
+                                        duration: Duration(milliseconds: 500)));
                               },
-                              icon: Icon(
+                              icon: const Icon(
                                 Icons.bookmark_add_rounded,
                                 color: Colors.white,
                                 size: 30,
@@ -202,25 +205,26 @@ class MoviePage extends StatelessWidget {
                 Container(
                   color: Theme.of(context).scaffoldBackgroundColor,
                   child: Padding(
-                    padding: EdgeInsets.symmetric(vertical: 15, horizontal: 10),
+                    padding: const EdgeInsets.symmetric(
+                        vertical: 15, horizontal: 10),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
                           movie_title,
-                          style: TextStyle(
+                          style: const TextStyle(
                             // color: Colors.white,
                             fontWeight: FontWeight.w800,
                             fontSize: 20,
                           ),
                           textAlign: TextAlign.justify,
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 15,
                         ),
                         Text(
                           movie_desc,
-                          style: TextStyle(
+                          style: const TextStyle(
                             // color: Colors.white,
                             fontSize: 14,
                           ),
@@ -230,7 +234,7 @@ class MoviePage extends StatelessWidget {
                     ),
                   ),
                 ),
-                SizedBox(height: 10),
+                const SizedBox(height: 10),
               ],
             )),
           )

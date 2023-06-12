@@ -61,8 +61,8 @@ class _SignUpCompletionState extends State<SignUpCompletion> {
           child: SingleChildScrollView(
             child: Column(
               children: <Widget>[
-                Padding(
-                  padding: const EdgeInsets.only(top: 80, bottom: 30),
+                const Padding(
+                  padding: EdgeInsets.only(top: 80, bottom: 30),
                   child: Center(
                     child: Text(
                       "Complete Your Sign Up",
@@ -100,7 +100,7 @@ class _SignUpCompletionState extends State<SignUpCompletion> {
                           height: 40,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(100),
-                            color: Color.fromRGBO(69, 69, 69, 1),
+                            color: const Color.fromRGBO(69, 69, 69, 1),
                           ),
                           child: IconButton(
                             onPressed: () async {
@@ -148,7 +148,7 @@ class _SignUpCompletionState extends State<SignUpCompletion> {
                               }
                               setState(() {});
                             },
-                            icon: Icon(Icons.camera_alt),
+                            icon: const Icon(Icons.camera_alt),
                           ),
                         ),
                       )
@@ -157,22 +157,22 @@ class _SignUpCompletionState extends State<SignUpCompletion> {
                 ),
 
                 Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 15),
+                  padding: const EdgeInsets.symmetric(horizontal: 15),
                   child: TextFormField(
                     controller: dispNameController,
                     validator: validateForm,
-                    style: TextStyle(color: Colors.white),
+                    style: const TextStyle(color: Colors.white),
                     decoration: InputDecoration(
-                        fillColor: Color(0xff2C2C2C).withOpacity(0.51),
+                        fillColor: const Color(0xff2C2C2C).withOpacity(0.51),
                         filled: true,
                         border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(45.0),
                             borderSide: BorderSide.none),
-                        prefixIcon: Icon(Icons.perm_identity),
-                        prefixIconColor: Color(0xff707070),
+                        prefixIcon: const Icon(Icons.perm_identity),
+                        prefixIconColor: const Color(0xff707070),
                         // labelText: 'Email',
                         hintText: 'Name',
-                        hintStyle: TextStyle(
+                        hintStyle: const TextStyle(
                             color: Color.fromARGB(255, 112, 112, 112))),
                   ),
                 ),
@@ -273,14 +273,14 @@ class _SignUpCompletionState extends State<SignUpCompletion> {
                 //   ),
                 // ),
 
-                SizedBox(
+                const SizedBox(
                   height: 50,
                 ),
                 Container(
                   height: 50,
                   width: 320,
                   decoration: BoxDecoration(
-                      color: Color.fromARGB(255, 81, 58, 9),
+                      color: const Color.fromARGB(255, 81, 58, 9),
                       borderRadius: BorderRadius.circular(45)),
                   child: TextButton(
                     onPressed: () async {
@@ -301,18 +301,18 @@ class _SignUpCompletionState extends State<SignUpCompletion> {
                             context: context,
                             builder: (context) {
                               return AlertDialog(
-                                shape: RoundedRectangleBorder(
+                                shape: const RoundedRectangleBorder(
                                     borderRadius: BorderRadius.all(
                                         Radius.circular(15.0))),
                                 backgroundColor:
-                                    Color.fromARGB(255, 34, 34, 34),
+                                    const Color.fromARGB(255, 34, 34, 34),
                                 title: const Text(
                                   "Error",
                                   style: TextStyle(color: Colors.white),
                                 ),
                                 content: Text(
                                   errorMessage,
-                                  style: TextStyle(color: Colors.white),
+                                  style: const TextStyle(color: Colors.white),
                                 ),
                                 actions: [
                                   TextButton(
@@ -334,7 +334,7 @@ class _SignUpCompletionState extends State<SignUpCompletion> {
                         }
                       }
                     },
-                    child: Text(
+                    child: const Text(
                       'Sign Up',
                       style: TextStyle(color: Colors.white, fontSize: 15),
                     ),

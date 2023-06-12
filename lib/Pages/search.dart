@@ -7,7 +7,7 @@ class Search extends StatelessWidget {
   const Search({super.key});
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       body: SearchPage(),
     );
   }
@@ -63,12 +63,12 @@ class _SearchPageState extends State<SearchPage> {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       body: Padding(
-        padding: EdgeInsets.all(16),
+        padding: const EdgeInsets.all(16),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            SizedBox(
+            const SizedBox(
               height: 30.0,
             ),
             TextField(
@@ -83,31 +83,31 @@ class _SearchPageState extends State<SearchPage> {
                   borderSide: BorderSide.none,
                 ),
                 hintText: "Search",
-                hintStyle: TextStyle(
+                hintStyle: const TextStyle(
                     // color: Colors.white,
                     ),
                 suffixIcon: IconButton(
                   onPressed: () {
                     _controller.clear();
                   },
-                  icon: Icon(Icons.clear),
+                  icon: const Icon(Icons.clear),
                 ),
                 prefixIcon: IconButton(
                   onPressed: () {
                     Navigator.of(context).pop();
                   },
-                  icon: Icon(Icons.arrow_back),
+                  icon: const Icon(Icons.arrow_back),
                 ),
                 // suffixIconColor: Color.fromARGB(255, 255, 255, 255),
                 // prefixIconColor: Color.fromARGB(255, 255, 255, 255),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 10.0,
             ),
             Expanded(
               child: display_list.length == 0
-                  ? Center(
+                  ? const Center(
                       child: Text(
                         "No result found",
                         style: TextStyle(
@@ -121,14 +121,14 @@ class _SearchPageState extends State<SearchPage> {
                       itemBuilder: (context, index) => ListTile(
                         title: Text(
                           display_list[index].movie_title!,
-                          style: TextStyle(
+                          style: const TextStyle(
                             fontSize: 14,
                           ),
                         ),
                         subtitle: Text(
                           display_list[index].movie_year!,
-                          style:
-                              TextStyle(color: Color.fromARGB(255, 72, 72, 72)),
+                          style: const TextStyle(
+                              color: Color.fromARGB(255, 72, 72, 72)),
                         ),
                         leading: SizedBox(
                           height: 100,

@@ -1,7 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:geekiga/models/movieList.dart';
-import 'package:provider/provider.dart';
-import '../providers/movie_provider.dart';
 
 class ChartPage extends StatelessWidget {
   const ChartPage({super.key});

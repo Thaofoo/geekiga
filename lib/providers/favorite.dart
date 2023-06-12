@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:geekiga/models/movieList.dart';
-import 'package:geekiga/providers/authService.dart';
-// import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:http/http.dart' as http;
 import 'package:firebase_database/firebase_database.dart';
 import 'dart:convert';
@@ -56,6 +54,7 @@ class Favorite with ChangeNotifier {
   //   return [...favorite_list];
   // }
 
+  @override
   void notifyListeners() {}
 
   Future<void>? addFav(String id, String uid, String title, String cover,

@@ -46,11 +46,11 @@ class _LoginPageState extends State<LoginPage> {
         ),
       ),
       child: Scaffold(
-        backgroundColor: Color.fromARGB(42, 0, 0, 0),
+        backgroundColor: const Color.fromARGB(42, 0, 0, 0),
         appBar: AppBar(
           backgroundColor: Colors.transparent,
           elevation: 0,
-          iconTheme: IconThemeData(color: Colors.white),
+          iconTheme: const IconThemeData(color: Colors.white),
           // title: Text("Forget Page"),
         ),
         body: Form(
@@ -58,7 +58,7 @@ class _LoginPageState extends State<LoginPage> {
           child: SingleChildScrollView(
             child: Column(
               children: <Widget>[
-                SizedBox(
+                const SizedBox(
                   height: 30,
                 ),
                 Padding(
@@ -70,8 +70,8 @@ class _LoginPageState extends State<LoginPage> {
                         child: Image.asset('assets/images/small-logo.png')),
                   ),
                 ),
-                Padding(
-                  padding: const EdgeInsets.all(40),
+                const Padding(
+                  padding: EdgeInsets.all(40),
                   child: Center(
                     child: Text(
                       "Reset Password",
@@ -82,8 +82,8 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                   ),
                 ),
-                Padding(
-                  padding: const EdgeInsets.fromLTRB(27, 5, 27, 30),
+                const Padding(
+                  padding: EdgeInsets.fromLTRB(27, 5, 27, 30),
                   child: Center(
                     child: Text(
                       "Please enter the email associated with your account and we'll send an email with instructions to reset your password",
@@ -97,33 +97,34 @@ class _LoginPageState extends State<LoginPage> {
                 ),
                 Padding(
                   //padding: const EdgeInsets.only(left:15.0,right: 15.0,top:0,bottom: 0),
-                  padding: EdgeInsets.symmetric(horizontal: 15),
+                  padding: const EdgeInsets.symmetric(horizontal: 15),
                   child: TextFormField(
                     controller: resetController,
                     validator: validateEmail,
-                    style: TextStyle(color: Colors.white),
+                    style: const TextStyle(color: Colors.white),
                     decoration: InputDecoration(
-                        fillColor: Color(0xff2C2C2C).withOpacity(0.51),
+                        fillColor: const Color(0xff2C2C2C).withOpacity(0.51),
                         filled: true,
                         border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(45.0),
                             borderSide: BorderSide.none),
-                        prefixIcon: Icon(Icons.person_outline_sharp),
-                        prefixIconColor: Color.fromARGB(255, 112, 112, 112),
+                        prefixIcon: const Icon(Icons.person_outline_sharp),
+                        prefixIconColor:
+                            const Color.fromARGB(255, 112, 112, 112),
                         // labelText: 'Email',
                         hintText: 'Email',
-                        hintStyle: TextStyle(
+                        hintStyle: const TextStyle(
                             color: Color.fromARGB(255, 112, 112, 112))),
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 20,
                 ),
                 Container(
                   height: 50,
                   width: 320,
                   decoration: BoxDecoration(
-                      color: Color.fromARGB(255, 81, 58, 9),
+                      color: const Color.fromARGB(255, 81, 58, 9),
                       borderRadius: BorderRadius.circular(45)),
                   child: TextButton(
                     onPressed: () async {
@@ -139,17 +140,17 @@ class _LoginPageState extends State<LoginPage> {
                                       context: context,
                                       builder: (context) {
                                         return AlertDialog(
-                                          shape: RoundedRectangleBorder(
+                                          shape: const RoundedRectangleBorder(
                                               borderRadius: BorderRadius.all(
                                                   Radius.circular(15.0))),
-                                          backgroundColor:
-                                              Color.fromARGB(255, 34, 34, 34),
+                                          backgroundColor: const Color.fromARGB(
+                                              255, 34, 34, 34),
                                           title: const Text(
                                             "Email Sent",
                                             style:
                                                 TextStyle(color: Colors.white),
                                           ),
-                                          content: Text(
+                                          content: const Text(
                                             "Please check your email inbox",
                                             style:
                                                 TextStyle(color: Colors.white),
@@ -164,7 +165,7 @@ class _LoginPageState extends State<LoginPage> {
                                                     MaterialPageRoute(
                                                         builder: (BuildContext
                                                                 context) =>
-                                                            LandingPage()));
+                                                            const LandingPage()));
                                               },
                                               child: const Text(
                                                 "Continue",
@@ -186,18 +187,18 @@ class _LoginPageState extends State<LoginPage> {
                             context: context,
                             builder: (context) {
                               return AlertDialog(
-                                shape: RoundedRectangleBorder(
+                                shape: const RoundedRectangleBorder(
                                     borderRadius: BorderRadius.all(
                                         Radius.circular(15.0))),
                                 backgroundColor:
-                                    Color.fromARGB(255, 34, 34, 34),
+                                    const Color.fromARGB(255, 34, 34, 34),
                                 title: const Text(
                                   "Error",
                                   style: TextStyle(color: Colors.white),
                                 ),
                                 content: Text(
                                   errorMessage,
-                                  style: TextStyle(color: Colors.white),
+                                  style: const TextStyle(color: Colors.white),
                                 ),
                                 actions: [
                                   TextButton(
@@ -219,7 +220,7 @@ class _LoginPageState extends State<LoginPage> {
                         ;
                       }
                     },
-                    child: Text(
+                    child: const Text(
                       'Send Email',
                       style: TextStyle(color: Colors.white, fontSize: 15),
                     ),

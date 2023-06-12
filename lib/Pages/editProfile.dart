@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:firebase_auth/firebase_auth.dart' as auth;
-import 'package:geekiga/pages/profile.dart';
 
 class EditProfile extends StatefulWidget {
   @override
@@ -28,11 +27,11 @@ class _EditProfileState extends State<EditProfile> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        iconTheme: IconThemeData(
+        iconTheme: const IconThemeData(
           color: Colors.grey, //change your color here
         ),
         centerTitle: true,
-        title: Text("Edit Profile"),
+        title: const Text("Edit Profile"),
         elevation: 0,
       ),
       body: Form(
@@ -64,7 +63,7 @@ class _EditProfileState extends State<EditProfile> {
                       height: 40,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(100),
-                        color: Color.fromRGBO(69, 69, 69, 1),
+                        color: const Color.fromRGBO(69, 69, 69, 1),
                       ),
                       child: IconButton(
                         onPressed: () async {
@@ -111,56 +110,56 @@ class _EditProfileState extends State<EditProfile> {
                           }
                           setState(() {});
                         },
-                        icon: Icon(Icons.camera_alt),
+                        icon: const Icon(Icons.camera_alt),
                       ),
                     ),
                   )
                 ],
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
             Padding(
               //padding: const EdgeInsets.only(left:15.0,right: 15.0,top:0,bottom: 0),
-              padding: EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+              padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
               child: TextFormField(
                 controller: dispNameController,
                 // validator: validateEmail,
-                style: TextStyle(color: Colors.white),
+                style: const TextStyle(color: Colors.white),
                 decoration: InputDecoration(
-                    fillColor: Color(0xff2C2C2C).withOpacity(0.51),
+                    fillColor: const Color(0xff2C2C2C).withOpacity(0.51),
                     filled: true,
                     border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(45.0),
                         borderSide: BorderSide.none),
-                    prefixIcon: Icon(Icons.person_outline_sharp),
-                    prefixIconColor: Color(0xff707070),
+                    prefixIcon: const Icon(Icons.person_outline_sharp),
+                    prefixIconColor: const Color(0xff707070),
                     // labelText: 'Email',
                     hintText: 'Name',
-                    hintStyle:
-                        TextStyle(color: Color.fromARGB(255, 112, 112, 112))),
+                    hintStyle: const TextStyle(
+                        color: Color.fromARGB(255, 112, 112, 112))),
               ),
             ),
             Padding(
               //padding: const EdgeInsets.only(left:15.0,right: 15.0,top:0,bottom: 0),
-              padding: EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+              padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
               child: TextFormField(
                 controller: emailController,
                 // validator: validateEmail,
-                style: TextStyle(color: Colors.white),
+                style: const TextStyle(color: Colors.white),
                 decoration: InputDecoration(
-                    fillColor: Color(0xff2C2C2C).withOpacity(0.51),
+                    fillColor: const Color(0xff2C2C2C).withOpacity(0.51),
                     filled: true,
                     border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(45.0),
                         borderSide: BorderSide.none),
-                    prefixIcon: Icon(Icons.mail_outline_rounded),
-                    prefixIconColor: Color(0xff707070),
+                    prefixIcon: const Icon(Icons.mail_outline_rounded),
+                    prefixIconColor: const Color(0xff707070),
                     // labelText: 'Email',
                     hintText: 'Email',
-                    hintStyle:
-                        TextStyle(color: Color.fromARGB(255, 112, 112, 112))),
+                    hintStyle: const TextStyle(
+                        color: Color.fromARGB(255, 112, 112, 112))),
               ),
             ),
             // Padding(
@@ -238,7 +237,7 @@ class _EditProfileState extends State<EditProfile> {
                 height: 50,
                 width: 320,
                 decoration: BoxDecoration(
-                    color: Color.fromARGB(255, 81, 58, 9),
+                    color: const Color.fromARGB(255, 81, 58, 9),
                     borderRadius: BorderRadius.circular(45)),
                 child: TextButton(
                   onPressed: () async {
@@ -255,7 +254,7 @@ class _EditProfileState extends State<EditProfile> {
                     // Navigator.of(context).popUntil((route) => route.isFirst);
                     Navigator.pop(context);
                   },
-                  child: Text(
+                  child: const Text(
                     'Confirm',
                     style: TextStyle(color: Colors.white, fontSize: 15),
                   ),

@@ -1,6 +1,4 @@
-import 'dart:convert';
 import 'package:flutter/material.dart';
-import 'package:http/http.dart' as http;
 import 'package:firebase_auth/firebase_auth.dart' as auth;
 import '../models/user.dart';
 
@@ -63,21 +61,3 @@ class AuthService with ChangeNotifier {
     return await _firebaseAuth.signOut();
   }
 }
-
-// Future addUserDetail(
-//     String firstName, String lastName, String email, String uid) async {
-//   Uri url = Uri.parse(
-//       "https://knowpedia-df445-default-rtdb.asia-southeast1.firebasedatabase.app/users.json?auth=$token");
-
-//   http.post(
-//     url,
-//     body: json.encode(
-//       {
-//         "uid": uid,
-//         "email": email,
-//         "firstName": firstName,
-//         "lastName": lastName,
-//       },
-//     ),
-//   );
-// }

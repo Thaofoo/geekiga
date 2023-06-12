@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:geekiga/app_theme.dart';
 import 'package:geekiga/main.dart';
 import 'package:geekiga/pages/search.dart';
 import 'package:geekiga/pages/drawer.dart';
@@ -45,12 +44,12 @@ class Home extends StatelessWidget {
                 Row(
                   children: [
                     Padding(
-                      padding: EdgeInsets.fromLTRB(16, 0, 0, 0),
+                      padding: const EdgeInsets.fromLTRB(16, 0, 0, 0),
                       child: ElevatedButton(
                           style: ElevatedButton.styleFrom(
                               elevation: 0,
                               backgroundColor:
-                                  Color.fromARGB(0, 255, 255, 255)),
+                                  const Color.fromARGB(0, 255, 255, 255)),
                           onPressed: () {
                             Navigator.of(context, rootNavigator: true).push(
                               MaterialPageRoute(
@@ -77,8 +76,8 @@ class Home extends StatelessWidget {
                 child: ListView(
               scrollDirection: Axis.vertical,
               children: [
-                Padding(
-                  padding: const EdgeInsets.fromLTRB(20, 0, 20, 10),
+                const Padding(
+                  padding: EdgeInsets.fromLTRB(20, 0, 20, 10),
                   child: Text("Featured",
                       style: TextStyle(
                           // color: Colors.white,
@@ -104,7 +103,8 @@ class Home extends StatelessWidget {
                       scrollDirection: Axis.horizontal,
                       itemBuilder: (context, index) =>
                           ChangeNotifierProvider.value(
-                              value: movie_list[index], child: FeaturedMovie()),
+                              value: movie_list[index],
+                              child: const FeaturedMovie()),
                       itemCount: 7,
                     ),
                   ),
@@ -127,7 +127,7 @@ class Home extends StatelessWidget {
                       itemBuilder: (context, index) =>
                           ChangeNotifierProvider.value(
                               value: movie_list[index + 3],
-                              child: FeaturedMovie()),
+                              child: const FeaturedMovie()),
                       itemCount: 7,
                     ),
                   ),
@@ -150,7 +150,7 @@ class Home extends StatelessWidget {
                       itemBuilder: (context, index) =>
                           ChangeNotifierProvider.value(
                               value: movie_list[index + 6],
-                              child: FeaturedMovie()),
+                              child: const FeaturedMovie()),
                       itemCount: 5,
                     ),
                   ),
@@ -172,12 +172,13 @@ class Home extends StatelessWidget {
                       scrollDirection: Axis.horizontal,
                       itemBuilder: (context, index) =>
                           ChangeNotifierProvider.value(
-                              value: movie_list[index], child: FeaturedMovie()),
+                              value: movie_list[index],
+                              child: const FeaturedMovie()),
                       itemCount: movie_list.length,
                     ),
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 20,
                 ),
               ],

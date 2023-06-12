@@ -17,7 +17,7 @@ class VideoPlayerFullscreen extends StatelessWidget {
           alignment: Alignment.topCenter,
           child: buildVideo(),
         )
-      : Center(child: CircularProgressIndicator());
+      : const Center(child: CircularProgressIndicator());
 
   Widget buildVideo() => GestureDetector(
         behavior: HitTestBehavior.opaque,

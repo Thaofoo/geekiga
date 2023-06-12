@@ -25,7 +25,7 @@ class _WatchListPageState extends State<WatchListPage> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(
+        title: const Text(
           "Watchlist Page",
           style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
         ),
@@ -52,7 +52,7 @@ class _WatchListPageState extends State<WatchListPage> {
               });
             },
             child: Container(
-              margin: EdgeInsets.fromLTRB(
+              margin: const EdgeInsets.fromLTRB(
                 15,
                 5,
                 30,
@@ -81,7 +81,7 @@ class _WatchListPageState extends State<WatchListPage> {
                   width: 170,
                   child: Text(
                     movieData.fav3[counter].movie_title,
-                    style: TextStyle(fontSize: 16),
+                    style: const TextStyle(fontSize: 16),
                   ),
                 ),
                 IconButton(
@@ -91,7 +91,7 @@ class _WatchListPageState extends State<WatchListPage> {
                       Provider.of<AuthService>(context, listen: false).userId ??
                           "No Name",
                     );
-                    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                    ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
                       content: Text("Berhasil Dihapus dari Watchlist"),
                       duration: Duration(milliseconds: 500),
                     ));
@@ -99,7 +99,7 @@ class _WatchListPageState extends State<WatchListPage> {
                       initState();
                     });
                   },
-                  icon: Icon(Icons.delete),
+                  icon: const Icon(Icons.delete),
                 )
               ]),
             ),

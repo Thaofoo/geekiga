@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:geekiga/pages/about.dart';
 import 'package:geekiga/main.dart';
 
 const Color warnaEmas = Color.fromARGB(255, 184, 137, 33);
@@ -13,18 +12,18 @@ class Settings extends StatelessWidget {
       // backgroundColor: Color.fromARGB(255, 0, 0, 0),
       bottomNavigationBar: null,
       appBar: AppBar(
-        iconTheme: IconThemeData(
+        iconTheme: const IconThemeData(
           color: Colors.grey, //change your color here
         ),
-        title: Text(
+        title: const Text(
           'Settings',
         ),
         centerTitle: true,
-        backgroundColor: Color.fromARGB(0, 48, 48, 48),
+        backgroundColor: const Color.fromARGB(0, 48, 48, 48),
         elevation: 0,
       ),
       body: ListView(
-        children: [
+        children: const [
           ListTile(
               title: Text(
                 "Dark Mode",
